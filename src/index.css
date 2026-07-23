@@ -1,0 +1,129 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Lenis smooth-scroll */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+/* Self-hosted fonts (brief §3). Files live in /public/fonts.
+   font-display: swap — text paints immediately in the fallback, then swaps. */
+@font-face {
+  font-family: 'Cabinet Grotesk';
+  src: url('/fonts/CabinetGrotesk-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Cabinet Grotesk';
+  src: url('/fonts/CabinetGrotesk-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Switzer';
+  src: url('/fonts/Switzer-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Switzer';
+  src: url('/fonts/Switzer-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: url('/fonts/JetBrainsMono-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer base {
+  :root {
+    --void: #07060a;
+    --soot: #0f0d12;
+    --ash: #1a171d;
+    --core: #ffe9c4;
+    --flare: #ffa53d;
+    --ember: #ff5a1f;
+    --coal: #7a1e00;
+    --bone: #f2eee8;
+    --smoke: #9a928c;
+    --hairline: rgba(242, 238, 232, 0.08);
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: auto; /* Lenis owns smooth scroll */
+  }
+
+  body {
+    background: var(--void);
+    color: var(--bone);
+    font-family: 'Switzer', ui-sans-serif, system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    /* clip (not hidden) kills stray horizontal scroll without creating a
+       scroll container that would break ScrollTrigger pinning. */
+    overflow-x: clip;
+  }
+
+  ::selection {
+    background: var(--ember);
+    color: var(--void);
+  }
+
+  /* Never remove outlines (brief §7). */
+  :focus-visible {
+    outline: 2px solid var(--ember);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+}
+
+@layer components {
+  /* Nav link with an --ember underline wiping in from the left (brief §7). */
+  .nav-link {
+    position: relative;
+    color: var(--smoke);
+    transition: color 0.22s ease;
+  }
+  .nav-link:hover,
+  .nav-link:focus-visible {
+    color: var(--bone);
+  }
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -6px;
+    height: 1px;
+    background: var(--ember);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.22s ease;
+  }
+  .nav-link:hover::after,
+  .nav-link:focus-visible::after {
+    transform: scaleX(1);
+  }
+}
