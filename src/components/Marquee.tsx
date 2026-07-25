@@ -5,7 +5,7 @@ import { gsap, prefersReducedMotion } from '../lib/gsap'
 function Row({ items, reverse = false }: { items: readonly string[]; reverse?: boolean }) {
   const ref = useRef<HTMLDivElement>(null)
 
-  // Content is duplicated ×2, so a -50% shift loops seamlessly. Pause on hover.
+  // Content is duplicated ×2, so a -50% shift loops seamlessly. Always runs.
   useLayoutEffect(() => {
     if (prefersReducedMotion()) return
     const el = ref.current
@@ -15,14 +15,8 @@ function Row({ items, reverse = false }: { items: readonly string[]; reverse?: b
       { xPercent: reverse ? -50 : 0 },
       { xPercent: reverse ? 0 : -50, duration: 38, ease: 'none', repeat: -1 },
     )
-    const pause = () => tween.pause()
-    const resume = () => tween.resume()
-    el.addEventListener('pointerenter', pause)
-    el.addEventListener('pointerleave', resume)
     return () => {
       tween.kill()
-      el.removeEventListener('pointerenter', pause)
-      el.removeEventListener('pointerleave', resume)
     }
   }, [reverse])
 
@@ -43,7 +37,7 @@ function Row({ items, reverse = false }: { items: readonly string[]; reverse?: b
 // Two rows scrolling opposite ways, edges masked to --void (brief §5).
 export default function Marquee() {
   return (
-    <div className="relative mt-20 space-y-5 overflow-hidden [mask-image:linear-gradient(90deg,transparent,#000_12%,#000_88%,transparent)]">
+    <div className="relative space-y-5 overflow-hidden [mask-image:linear-gradient(90deg,transparent,#000_12%,#000_88%,transparent)]">
       <Row items={numbers.marquee} />
       <Row items={[...numbers.marquee].reverse()} reverse />
     </div>

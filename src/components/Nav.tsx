@@ -38,12 +38,6 @@ export default function Nav({ onWaitlist }: { onWaitlist: () => void }) {
         <div className="flex items-center gap-4">
           <button
             onClick={onWaitlist}
-            className="hidden text-[15px] text-smoke transition-colors hover:text-bone sm:block"
-          >
-            {nav.login}
-          </button>
-          <button
-            onClick={onWaitlist}
             className="group flex items-center gap-2 rounded-pill bg-ember py-1.5 pl-4 pr-1.5 text-[15px] font-medium text-void transition-transform hover:scale-[1.02]"
           >
             {nav.cta}

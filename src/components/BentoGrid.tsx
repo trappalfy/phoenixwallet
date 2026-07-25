@@ -7,7 +7,7 @@ const SPANS = ['md:col-span-2', 'md:col-span-1', 'md:col-span-1', 'md:col-span-2
 export default function BentoGrid() {
   return (
     <section id="product" className="relative px-6 py-24 md:py-32">
-      <div className="mx-auto max-w-[1200px]">
+      <div className="relative z-10 mx-auto max-w-[1200px]">
         <p data-reveal className="font-mono text-label uppercase text-smoke">
           {bento.label}
         </p>

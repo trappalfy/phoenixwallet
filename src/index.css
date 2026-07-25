@@ -99,6 +99,68 @@ html.lenis body {
   }
 }
 
+/* Feather a section's decorative backdrop into the void at its top and bottom
+   edges. Each section clips its glow/rakes with overflow-hidden; at the clip the
+   layer is still near-opaque, so the hard cut reads as a seam and the section
+   looks "cropped". This fades the decoration out before the edge, so stacked
+   sections blend through the shared void instead of butting at a line. */
+.edge-fade-y {
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 11%, #000 88%, transparent 100%);
+  mask-image: linear-gradient(to bottom, transparent 0, #000 11%, #000 88%, transparent 100%);
+}
+
+/* "One surface" ambient backdrop — a slow breathing glow + a barely-there sway
+   of the ray fan, so the section reads as alive, not a static panel. Amplitudes
+   are tiny on purpose: ambient, never distracting. Reduced motion freezes both. */
+@keyframes sgBreathe {
+  from {
+    opacity: 0.68;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes sgSway {
+  from {
+    transform: rotate(-1.2deg);
+  }
+  to {
+    transform: rotate(1.2deg);
+  }
+}
+/* Contour rings expand outward from the apex forever — light pouring downward.
+   The 1.32 scale MUST match ARC_RATIO in SurfaceGlow.tsx: with geometric ring
+   spacing, one full ratio-scale lands each ring on the next, so the loop is
+   seamless. Linear timing = constant, endless descent. */
+@keyframes sgDescend {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.32);
+  }
+}
+.sg-breathe {
+  animation: sgBreathe 9s ease-in-out infinite alternate;
+}
+.sg-sway {
+  transform-box: fill-box;
+  transform-origin: center top;
+  animation: sgSway 16s ease-in-out infinite alternate;
+}
+.sg-descend {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: sgDescend 14s linear infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .sg-breathe,
+  .sg-sway,
+  .sg-descend {
+    animation: none !important;
+  }
+}
+
 @layer components {
   /* Nav link with an --ember underline wiping in from the left (brief §7). */
   .nav-link {

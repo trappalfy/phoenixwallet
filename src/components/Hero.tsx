@@ -1,5 +1,32 @@
+import { useLayoutEffect, useRef } from 'react'
 import { hero } from '../content/copy'
 import { NetworkMark } from '../lib/icons'
+import { gsap, prefersReducedMotion } from '../lib/gsap'
+
+// Networks as a seamless marquee — same technique as <Marquee/>: content is
+// duplicated ×2 and shifted -50% on an infinite loop, never pausing on hover.
+function NetworkRow() {
+  const ref = useRef<HTMLDivElement>(null)
+  useLayoutEffect(() => {
+    if (prefersReducedMotion()) return
+    const el = ref.current
+    if (!el) return
+    const tween = gsap.fromTo(el, { xPercent: 0 }, { xPercent: -50, duration: 30, ease: 'none', repeat: -1 })
+    return () => {
+      tween.kill()
+    }
+  }, [])
+  return (
+    <div ref={ref} className="flex w-max items-center gap-10 whitespace-nowrap will-change-transform">
+      {[...hero.networks, ...hero.networks].map((n, i) => (
+        <div key={`${n.id}-${i}`} className="flex items-center gap-2 text-smoke/45">
+          <NetworkMark id={n.id} className="h-5 w-5 shrink-0" />
+          <span className="font-mono text-[12px] uppercase tracking-[0.08em]">{n.name}</span>
+        </div>
+      ))}
+    </div>
+  )
+}
 
 export default function Hero({ onWaitlist }: { onWaitlist: () => void }) {
   return (
@@ -75,20 +102,12 @@ export default function Hero({ onWaitlist }: { onWaitlist: () => void }) {
         <p data-load="net" className="font-mono text-label uppercase text-smoke/70">
           {hero.networksLabel}
         </p>
-        <ul className="mt-4 flex flex-wrap items-center gap-x-7 gap-y-4">
-          {hero.networks.map((n) => (
-            <li
-              key={n.id}
-              data-load="net"
-              className="flex items-center gap-2 text-smoke/40 transition-all duration-300 hover:scale-[1.06] hover:text-bone"
-            >
-              <NetworkMark id={n.id} className="h-5 w-5" />
-              <span className="font-mono text-[12px] uppercase tracking-[0.08em]">
-                {n.name}
-              </span>
-            </li>
-          ))}
-        </ul>
+        <div
+          data-load="net"
+          className="mt-4 overflow-hidden [mask-image:linear-gradient(90deg,transparent,#000_5%,#000_95%,transparent)]"
+        >
+          <NetworkRow />
+        </div>
       </div>
     </section>
   )

@@ -1,15 +1,22 @@
 import { security } from '../content/copy'
 import { BentoIcon } from '../lib/icons'
+import AbsorbField from './AbsorbField'
 
 export default function Security() {
   return (
     <section id="security" className="relative px-6 py-24 md:py-32">
-      <div className="mx-auto max-w-[1080px]">
-        {/* the thread dies into this enclave node — it never continues to a
-            server (brief §4). Stage 5 anchors the thread's end here. */}
+      {/* Dots stream into the enclave and dissolve there — light goes in, and
+          nothing continues out the other side to a server. That's the product
+          thesis rendered as a graphic (brief §4). One field centred on the icon
+          (viewport centre), so it reads as a single composition. */}
+      <div className="edge-fade-y pointer-events-none absolute inset-0 overflow-hidden">
+        <AbsorbField className="inset-x-0 top-[-140px] h-[540px]" intensity={1.15} />
+      </div>
+
+      <div className="relative z-10 mx-auto max-w-[1080px]">
         <div
-          data-thread-end
-          className="mx-auto mb-12 grid h-16 w-16 place-items-center rounded-[18px] border border-hairline bg-soot [box-shadow:0_0_60px_-16px_rgba(255,90,31,0.6)]"
+          data-absorb-center
+          className="mx-auto mb-6 grid h-16 w-16 place-items-center rounded-[18px] border border-hairline bg-soot [box-shadow:0_0_60px_-16px_rgba(255,90,31,0.6)]"
         >
           <BentoIcon name="enclave" className="h-8 w-8 text-ember" />
         </div>
@@ -27,17 +34,7 @@ export default function Security() {
             {security.proofs.map((p) => (
               <li key={p.label} data-reveal className="border-t border-hairline pt-5">
                 <p className="font-mono text-label uppercase text-flare">{p.label}</p>
-                <p className="mt-2 text-body text-bone/90">
-                  {p.body}
-                  {p.href && (
-                    <a
-                      href={p.href}
-                      className="ml-1.5 inline-block text-ember underline-offset-4 hover:underline"
-                    >
-                      ↗
-                    </a>
-                  )}
-                </p>
+                <p className="mt-2 text-body text-bone/90">{p.body}</p>
               </li>
             ))}
           </ul>

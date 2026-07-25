@@ -1,5 +1,6 @@
 import { useLayoutEffect, useRef, useState } from 'react'
-import gsap from 'gsap'
+import { gsap, ScrollTrigger } from './lib/gsap'
+import { useLenis } from './hooks/useLenis'
 import Shader from './gl/Shader'
 import GrainOverlay from './components/GrainOverlay'
 import Nav from './components/Nav'
@@ -9,13 +10,15 @@ import Showcase from './components/Showcase'
 import Security from './components/Security'
 import Numbers from './components/Numbers'
 import FinalCta from './components/FinalCta'
-import Footer from './components/Footer'
+import Footer from './components/footer/Footer'
 import WaitlistModal from './components/WaitlistModal'
 
 export default function App() {
   const rootRef = useRef<HTMLDivElement>(null)
   const [waitlistOpen, setWaitlistOpen] = useState(false)
   const openWaitlist = () => setWaitlistOpen(true)
+
+  useLenis()
 
   // Load sequence (brief §7). Reduced-motion → skip; markup renders at final state.
   useLayoutEffect(() => {
@@ -38,6 +41,15 @@ export default function App() {
         )
         .to(q('[data-load="sub"], [data-load="cta"]'), { autoAlpha: 1, y: 0, duration: 0.7, stagger: 0.08 }, 1.05)
         .to(q('[data-load="net"]'), { autoAlpha: 1, y: 0, duration: 0.6, stagger: 0.04 }, 1.2)
+
+      // Section reveals (brief §7): fade-up once per element on scroll-in.
+      gsap.set(q('[data-reveal]'), { autoAlpha: 0, y: 28 })
+      ScrollTrigger.batch(q('[data-reveal]'), {
+        start: 'top 82%',
+        once: true,
+        onEnter: (batch) =>
+          gsap.to(batch, { autoAlpha: 1, y: 0, duration: 0.6, stagger: 0.06, ease: 'power3.out' }),
+      })
     }, rootRef)
     return () => ctx.revert()
   }, [])

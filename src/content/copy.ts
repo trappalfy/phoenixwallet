@@ -94,14 +94,14 @@ export const security = {
   proofs: [
     {
       label: 'Audited',
-      // TODO: swap for real — audit count, firm names and report links
-      body: 'Three independent audits — Trail of Bits, Zellic and Cure53. Full reports, not summaries.',
+      // TODO: wire href to the published audit report(s)
+      body: "Reviewed by independent security firms — and the reports are public. Don't trust the badge, read them.",
       href: '#',
     },
     {
       label: 'Open source',
       // TODO: swap for real repo URL
-      body: 'Every line — client and signer — public at github.com/phoenix-wallet.',
+      body: 'Nothing hidden, nothing to take on faith — the whole wallet is open source.',
       href: '#',
     },
     {
@@ -111,7 +111,7 @@ export const security = {
     },
     {
       label: 'Hardware',
-      body: 'Ledger and Trezor supported from day one.',
+      body: 'Pair a Ledger or Trezor and the key never leaves it — Phoenix only talks to the device.',
       href: null,
     },
   ],

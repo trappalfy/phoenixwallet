@@ -8,14 +8,18 @@ export default function FinalCta() {
   const done = status === 'done'
 
   return (
-    <section className="relative overflow-hidden px-6 py-32 md:py-40">
-      {/* shader returns as a bottom-edge glow (~35%); CSS is enough here */}
+    <section className="relative overflow-hidden px-6 pb-32 pt-16 md:pb-40 md:pt-20">
+      {/* Flat warm horizon rising to the bottom edge. A radial "dome" here peaks
+          at the seam and, meeting the footer's upward-peaking dawn, formed a
+          bright cusp (a visible line). A flat vertical gradient has no horizontal
+          variation, and its top-of-seam color + near-zero slope are mirrored by
+          .footer__dawn — so the boundary has no step and no cusp. */}
       <div
         aria-hidden
         className="pointer-events-none absolute inset-x-0 bottom-0 h-2/3"
         style={{
           background:
-            'radial-gradient(85% 78% at 50% 118%, rgba(255,169,61,0.30), rgba(255,90,31,0.24) 30%, rgba(122,30,0,0.14) 55%, transparent 78%)',
+            'linear-gradient(to top, rgba(255,116,48,0.15) 0%, rgba(255,104,44,0.14) 5%, rgba(198,68,28,0.095) 20%, rgba(122,30,0,0.045) 38%, transparent 62%)',
         }}
       />
 
