@@ -1,0 +1,151 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Bundled faces — files live in public/fonts and ship inside the extension.
+   MV3 CSP makes a remote font a build-breaking error, not a style choice (§2.4). */
+@font-face {
+  font-family: 'Cabinet Grotesk';
+  src: url('/fonts/CabinetGrotesk-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: block;
+}
+@font-face {
+  font-family: 'Cabinet Grotesk';
+  src: url('/fonts/CabinetGrotesk-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: block;
+}
+@font-face {
+  font-family: 'Switzer';
+  src: url('/fonts/Switzer-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: block;
+}
+@font-face {
+  font-family: 'Switzer';
+  src: url('/fonts/Switzer-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: block;
+}
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: url('/fonts/JetBrainsMono-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: block;
+}
+
+@layer base {
+  :root {
+    --ink: #0a0506;
+    --surface-1: #140a0b;
+    --surface-2: #1e1011;
+    --surface-3: #2a1719;
+    --hairline: rgba(255, 196, 0, 0.09);
+    --text: #f7edea;
+    --text-dim: #b39c97;
+    --text-mute: #96817b;
+    --ember-deep: #d00000;
+    --ember: #ff4d00;
+    --ember-hot: #ffc300;
+    --gain: #3ed598;
+    --loss: #ff3b5c;
+
+    /* Angle copied from the logo so the UI and the icon share one light direction. */
+    --grad-ember: linear-gradient(135deg, #d00000 0%, #ff4d00 55%, #ffc300 100%);
+
+    --ease-out: cubic-bezier(0.2, 0.8, 0.25, 1);
+    --ease-in-out: cubic-bezier(0.6, 0, 0.3, 1);
+  }
+
+  /* The popup *is* the viewport. It never scrolls; only designated content
+     regions do (§2.5). Fixing the size here means a dev browser tab shows the
+     real surface at the real dimensions. */
+  html,
+  body {
+    width: 360px;
+    height: 600px;
+    margin: 0;
+    overflow: hidden;
+  }
+
+  #root {
+    height: 100%;
+  }
+
+  body {
+    background: var(--ink);
+    color: var(--text);
+    font-family: 'Switzer', ui-sans-serif, system-ui, sans-serif;
+    font-size: 13px;
+    line-height: 1.45;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection {
+    background: var(--ember);
+    color: var(--ink);
+  }
+
+  /* §5.4 — visible on keyboard focus for every interactive element. */
+  :focus-visible {
+    outline: none;
+    box-shadow:
+      0 0 0 1px rgba(255, 77, 0, 0.55),
+      0 0 0 4px rgba(255, 77, 0, 0.14);
+  }
+
+  /* Numbers must not reflow as they change (§11). */
+  .tnum {
+    font-variant-numeric: tabular-nums;
+  }
+
+  /**
+   * §13 — reduced motion removes all animation without breaking any layout.
+   *
+   * The eleven §10 entries already check `prefersReducedMotion()` in
+   * lib/motion.ts and never start. This covers what is left: the CSS
+   * transitions on hover, press and focus. They collapse to instant rather than
+   * being disabled, because `transition: none` on a colour change is the same
+   * final state, while removing a transform would move things.
+   */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 1ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 1ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer components {
+  /* Thin ember scrollbar for the content regions that are allowed to scroll. */
+  .scroll-region {
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 77, 0, 0.35) transparent;
+  }
+  .scroll-region::-webkit-scrollbar {
+    width: 4px;
+  }
+  .scroll-region::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .scroll-region::-webkit-scrollbar-thumb {
+    background: rgba(255, 77, 0, 0.35);
+    border-radius: 999px;
+  }
+  .scroll-region::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 77, 0, 0.55);
+  }
+}
