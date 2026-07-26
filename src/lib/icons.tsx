@@ -4,23 +4,6 @@ type IconProps = SVGProps<SVGSVGElement>
 
 const VOID = '#07060A' // for negative-space cuts; these marks only sit on --void
 
-// Phoenix flame wordmark glyph.
-export function Logo(props: IconProps) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" aria-hidden {...props}>
-      <path
-        d="M12 2c3 3.4 4.6 6.2 4.6 9.3A4.6 4.6 0 0 1 12 16a4.6 4.6 0 0 1-4.6-4.9C7.4 8 9.4 5.1 12 2Z"
-        fill="currentColor"
-      />
-      <path
-        d="M12 8.8c1.5 1.7 2.1 3.1 2.1 4.5A2.1 2.1 0 0 1 12 15.3a2.1 2.1 0 0 1-2.1-2c0-1.3.8-2.7 2.1-4.5Z"
-        fill={VOID}
-        opacity="0.55"
-      />
-    </svg>
-  )
-}
-
 // Diagonal up-right arrow (composed into the pill's circular badge in Nav).
 export function Arrow(props: IconProps) {
   return (

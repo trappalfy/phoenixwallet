@@ -1,5 +1,5 @@
 import { brand, nav } from '../content/copy'
-import { Arrow, Logo } from '../lib/icons'
+import { Arrow } from '../lib/icons'
 import { useScrolled } from '../hooks/useScrolled'
 
 export default function Nav({ onWaitlist }: { onWaitlist: () => void }) {
@@ -19,7 +19,7 @@ export default function Nav({ onWaitlist }: { onWaitlist: () => void }) {
         className="mx-auto flex h-full max-w-[1200px] items-center justify-between px-6"
       >
         <a href="#top" className="flex items-center gap-2" aria-label={`${brand.name} — home`}>
-          <Logo className="h-6 w-6 text-ember" />
+          <img src="/brand/phoenix-mark.png" alt="" className="h-6 w-auto" />
           <span className="font-display text-[19px] font-bold tracking-display text-bone">
             {brand.name}
           </span>
