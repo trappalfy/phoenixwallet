@@ -1,6 +1,14 @@
-node_modules
-dist
-dist-ssr
-*.local
+# OS
 .DS_Store
-*.log
+
+# Dependencies (root site + extension/, both match via this one pattern)
+node_modules/
+
+# Build output (root site + extension/, both match via this one pattern)
+dist/
+
+# The `main` branch doesn't track extension/ at all — see the `extension`
+# branch, whose .gitignore drops this line. store/build/ (the submission zip)
+# stays ignored on both, since it's a regenerable artifact of `npm run package`.
+/extension/
+extension/store/build/
