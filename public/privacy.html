@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Privacy Policy — Phoenix Wallet</title>
+    <meta name="description" content="Privacy policy for the Phoenix Wallet website and browser extension." />
+    <meta name="theme-color" content="#07060A" />
+    <link rel="preload" href="/fonts/CabinetGrotesk-Bold.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/Switzer-Regular.woff2" as="font" type="font/woff2" crossorigin />
+    <style>
+      @font-face {
+        font-family: 'Cabinet Grotesk';
+        src: url('/fonts/CabinetGrotesk-Bold.woff2') format('woff2');
+        font-weight: 700;
+        font-style: normal;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: 'Switzer';
+        src: url('/fonts/Switzer-Regular.woff2') format('woff2');
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: 'Switzer';
+        src: url('/fonts/Switzer-Medium.woff2') format('woff2');
+        font-weight: 500;
+        font-style: normal;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: 'JetBrains Mono';
+        src: url('/fonts/JetBrainsMono-Regular.woff2') format('woff2');
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      :root {
+        --void: #07060a;
+        --soot: #0f0d12;
+        --ash: #1a171d;
+        --flare: #ffa53d;
+        --ember: #ff5a1f;
+        --bone: #f2eee8;
+        --smoke: #9a928c;
+        --hairline: rgba(242, 238, 232, 0.08);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        background: var(--void);
+        color: var(--bone);
+        font-family: 'Switzer', ui-sans-serif, system-ui, sans-serif;
+        font-size: 16px;
+        line-height: 1.65;
+      }
+
+      .wrap {
+        max-width: 680px;
+        margin: 0 auto;
+        padding: 64px 24px 96px;
+      }
+
+      a {
+        color: var(--flare);
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+
+      .back {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 13px;
+        letter-spacing: 0.04em;
+        color: var(--smoke);
+        margin-bottom: 48px;
+      }
+      .back:hover {
+        color: var(--bone);
+      }
+
+      h1 {
+        font-family: 'Cabinet Grotesk', ui-sans-serif, system-ui, sans-serif;
+        font-weight: 700;
+        font-size: clamp(2rem, 5vw, 2.75rem);
+        letter-spacing: -0.02em;
+        line-height: 1.05;
+        margin: 0 0 12px;
+      }
+
+      .updated {
+        font-family: 'JetBrains Mono', ui-monospace, monospace;
+        font-size: 13px;
+        color: var(--smoke);
+        margin: 0 0 48px;
+      }
+
+      h2 {
+        font-family: 'Cabinet Grotesk', ui-sans-serif, system-ui, sans-serif;
+        font-weight: 700;
+        font-size: 20px;
+        margin: 40px 0 12px;
+      }
+
+      p {
+        margin: 0 0 16px;
+        color: var(--bone);
+      }
+
+      ul {
+        margin: 0 0 16px;
+        padding-left: 20px;
+      }
+      li {
+        margin-bottom: 10px;
+        color: var(--bone);
+      }
+      li::marker {
+        color: var(--ember);
+      }
+
+      .card {
+        background: var(--soot);
+        border: 1px solid var(--hairline);
+        border-radius: 16px;
+        padding: 24px;
+        margin: 32px 0;
+      }
+
+      .contact {
+        font-family: 'JetBrains Mono', ui-monospace, monospace;
+        font-size: 15px;
+      }
+
+      footer {
+        margin-top: 64px;
+        padding-top: 24px;
+        border-top: 1px solid var(--hairline);
+        font-size: 13px;
+        color: var(--smoke);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <a class="back" href="/">← Phoenix</a>
+
+      <h1>Privacy Policy</h1>
+      <p class="updated">Last updated: July 26, 2026</p>
+
+      <p>
+        This policy covers both the Phoenix Wallet website (phoenixwallet.space) and the Phoenix
+        Wallet browser extension. In short: neither one collects, stores or transmits any personal
+        or financial data.
+      </p>
+
+      <h2>The browser extension</h2>
+      <ul>
+        <li>
+          The extension makes no network requests. There is no server behind it, no analytics, no
+          crash reporting and no third-party SDK of any kind.
+        </li>
+        <li>
+          Nothing you enter into it — including the sample recovery phrase, a password, or
+          transaction details — is transmitted anywhere. It exists only in the extension's local,
+          in-memory state and is discarded when the popup closes.
+        </li>
+        <li>
+          The extension requests no browser permissions and cannot read your browsing activity,
+          other open tabs, or any website's content.
+        </li>
+        <li>
+          This build does not create a real wallet, so there are no real private keys, balances or
+          transactions to protect or collect in the first place. All figures shown are sample data
+          generated locally.
+        </li>
+      </ul>
+
+      <h2>This website</h2>
+      <ul>
+        <li>
+          The waitlist / early-access form on this site does not submit anywhere — it is a
+          front-end preview and no email address is stored or sent to any server.
+        </li>
+        <li>
+          The site sets no tracking cookies and runs no analytics or advertising scripts.
+        </li>
+      </ul>
+
+      <h2>Future changes</h2>
+      <p>
+        If a future version of Phoenix Wallet adds functionality that involves handling real user
+        data or making network requests, this policy will be updated before that version ships, and
+        the change will be described plainly rather than folded into a version bump.
+      </p>
+
+      <div class="card">
+        <h2 style="margin-top: 0">Contact</h2>
+        <p style="margin-bottom: 0" class="contact">
+          <a href="mailto:phoenixwalletcontacts@gmail.com">phoenixwalletcontacts@gmail.com</a>
+        </p>
+      </div>
+
+      <footer>© 2026 Phoenix Wallet</footer>
+    </div>
+  </body>
+</html>
