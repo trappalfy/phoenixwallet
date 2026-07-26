@@ -19,6 +19,6 @@ If a future version of Phoenix Wallet adds functionality that involves handling 
 making network requests, this policy will be updated before that version ships, and the change
 will be described plainly rather than folded into a version bump.
 
-Contact: **TODO — add a real, monitored contact address before this is submitted.** The in-app
-About screen's "support@phoenix.wallet" is placeholder demo content, not a real inbox, and must not
-be reused here.
+Contact: phoenixwalletcontacts@gmail.com
+
+Live version of this policy: https://phoenixwallet.space/privacy.html
