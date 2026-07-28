@@ -121,6 +121,31 @@ const BENTO_ICONS: Record<string, ReactNode> = {
       <path d="m9.5 14 2 2 3.4-4" />
     </>
   ),
+  // /install step marks — same family, reused through <BentoIcon>.
+  download: (
+    <>
+      <path d="M12 4v10" />
+      <path d="m7.5 10.5 4.5 4 4.5-4" />
+      <path d="M5 18.5h14" />
+    </>
+  ),
+  // Puzzle piece — the universal "extensions" mark. Two outward knobs; plain
+  // corners, softened by the shared strokeLinejoin="round".
+  puzzle: (
+    <path d="M4.5 4.5H9.7a2.3 2.3 0 0 1 4.6 0h5.2v5.2a2.3 2.3 0 0 0 0 4.6v5.2H4.5Z" />
+  ),
+  toggle: (
+    <>
+      <rect x="3" y="8" width="18" height="8" rx="4" />
+      <circle cx="16" cy="12" r="2.1" />
+    </>
+  ),
+  folder: (
+    <>
+      <path d="M3.5 6.5h5l2 2.4h9.5v9.6a1 1 0 0 1-1 1h-15a1 1 0 0 1-1-1z" />
+      <path d="M3.5 11.4h17" />
+    </>
+  ),
 }
 
 export function BentoIcon({ name, ...props }: IconProps & { name: string }) {

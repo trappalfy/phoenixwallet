@@ -28,7 +28,7 @@ function NetworkRow() {
   )
 }
 
-export default function Hero({ onWaitlist }: { onWaitlist: () => void }) {
+export default function Hero() {
   return (
     <section
       id="top"
@@ -79,21 +79,23 @@ export default function Hero({ onWaitlist }: { onWaitlist: () => void }) {
         </p>
 
         <div className="mt-9 flex flex-wrap items-center gap-3">
-          <button
+          {/* Straight to the walkthrough — it works in any browser, and the page
+              itself states which ones can actually load the extension. */}
+          <a
             data-load="cta"
             data-magnetic
-            onClick={onWaitlist}
+            href="/install"
             className="rounded-pill bg-ember px-6 py-3.5 text-[15px] font-medium text-void transition-opacity hover:opacity-90"
           >
             {hero.ctaPrimary}
-          </button>
-          <button
+          </a>
+          <a
             data-load="cta"
-            onClick={onWaitlist}
+            href="#security"
             className="rounded-pill border border-hairline px-6 py-3.5 text-[15px] text-bone transition-colors hover:border-bone/25"
           >
             {hero.ctaSecondary}
-          </button>
+          </a>
         </div>
       </div>
 

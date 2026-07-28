@@ -59,7 +59,7 @@ export default function App() {
       <Shader />
       <Nav onWaitlist={openWaitlist} />
       <main>
-        <Hero onWaitlist={openWaitlist} />
+        <Hero />
         {/* opaque backdrop: covers the fixed shader once the hero scrolls away */}
         <div className="relative z-10 bg-void">
           <BentoGrid />
