@@ -14,7 +14,23 @@ export const nav = {
     { label: 'Docs', href: '#' }, // TODO: swap for real docs URL
   ],
   login: 'Log in',
-  cta: 'Get Phoenix',
+  cta: 'Add to Chrome',
+} as const
+
+// Install paths. A site cannot install an extension itself — Chrome removed
+// inline installation in v71 — so there are exactly two routes: the Web Store
+// listing, or download the zip and load it unpacked (see /install).
+export const product = {
+  /**
+   * null until Google approves the listing; the nav CTA falls back to the
+   * waitlist modal meanwhile. Paste the listing URL here and it switches over.
+   * See extension/store/README.md step 7.
+   */
+  chromeStoreUrl: null as string | null,
+  downloadUrl: '/downloads/phoenix-wallet-0.1.0.zip',
+  downloadVersion: '0.1.0',
+  downloadSha256: '213ac8f0a7e6674c241f0ff6f82d4f97f274c547300b7f5bda7bdb48a2018d4f',
+  unsupportedLabel: 'Chrome & Edge only',
 } as const
 
 export const hero = {
@@ -22,7 +38,7 @@ export const hero = {
   line1: 'Hold your own keys.',
   line2: 'Nothing leaves the device.',
   sub: 'Phoenix generates and signs on your machine. The seed phrase never touches our servers, because there are no servers. 40+ networks, one wallet, zero accounts.',
-  ctaPrimary: 'Add to Chrome',
+  ctaPrimary: 'Get Phoenix',
   ctaSecondary: 'Read the security model',
   networksLabel: 'Supported networks',
   // ids map to inline SVG marks in src/lib/icons.tsx
@@ -168,6 +184,60 @@ export const footer = {
   copyright: `© ${2026} Phoenix`, // TODO: keep year current
   smallprint:
     'Phoenix is non-custodial software. You are responsible for your own keys.',
+} as const
+
+// /install — the six-step "load unpacked" walkthrough. `code` renders as
+// copyable text, never as a link: Chrome blocks navigation to chrome:// URLs
+// from a web page, so an <a href="chrome://extensions"> silently does nothing.
+export const install = {
+  eyebrow: '✦ No store required',
+  line1: 'Add Phoenix',
+  line2: 'to your browser.',
+  sub: 'Two minutes, no account. Works on Chrome, Edge and Brave today; the Chrome Web Store listing is on the way.',
+  download: 'Download Phoenix',
+  secondary: 'Read the security model',
+  updateNote:
+    'Loaded this way, Phoenix does not update itself — grab a newer package here when one ships.',
+  unsupported:
+    'Phoenix is a Chromium extension. Open this page in Chrome, Edge, Brave or Opera on a desktop to install it.',
+  steps: [
+    {
+      icon: 'download',
+      title: 'Download the extension',
+      body: "Grab the Phoenix package and unzip it somewhere you'll remember. It's a standard unpacked Chrome extension — no installer, no account.",
+    },
+    {
+      icon: 'puzzle',
+      title: 'Open your extensions page',
+      body: 'In Chrome go to',
+      code: 'chrome://extensions',
+      bodyAfter:
+        '(Edge: edge://extensions, Brave: brave://extensions). This is where browsers let you add local extensions.',
+    },
+    {
+      icon: 'toggle',
+      title: 'Turn on Developer mode',
+      body: 'Flip the "Developer mode" switch in the top-right corner. It unlocks the "Load unpacked" button used for extensions not yet on the store.',
+    },
+    {
+      icon: 'folder',
+      title: 'Load unpacked → pick the folder',
+      body: 'Click "Load unpacked" and select the unzipped folder. Phoenix appears in your toolbar — pin it so it is one click away.',
+    },
+    {
+      icon: 'enclave',
+      title: 'Create your wallet',
+      body: 'Open Phoenix, set a password, and write down your 12-word recovery phrase. Keys are generated and encrypted on your device — never sent anywhere.',
+    },
+    {
+      icon: 'networks',
+      title: 'Explore every network',
+      body: 'Send, receive, swap and buy across eight networks, all self-custody. Your keys stay on your device the whole time.',
+    },
+  ],
+  safetyTitle: 'A word on safety',
+  safetyBody:
+    'Phoenix is self-custody: your recovery phrase is the only way back in, and no one — not us — can recover it for you. Store it offline, never paste it into a website, and only approve transactions you understand.',
 } as const
 
 export const waitlist = {

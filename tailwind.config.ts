@@ -4,7 +4,7 @@ import type { Config } from 'tailwindcss'
 // Only fire hues exist — the palette is replaced (not extended) so a stray
 // blue/purple/cyan util can't compile. See brief §9.
 export default {
-  content: ['./index.html', './src/**/*.{ts,tsx}'],
+  content: ['./index.html', './install.html', './src/**/*.{ts,tsx}'],
   theme: {
     colors: {
       transparent: 'transparent',
