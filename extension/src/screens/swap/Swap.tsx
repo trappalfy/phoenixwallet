@@ -134,7 +134,7 @@ export default function Swap() {
                   onClick={() => dispatch({ type: 'draft/swap', patch: { slippage: s } })}
                   className={`flex-1 rounded-chip border px-2 py-1 font-mono text-11 tabular-nums transition-colors duration-state ease-out ${
                     draft.slippage === s
-                      ? 'border-ember/50 bg-surface-3 text-text'
+                      ? 'border-accent/50 bg-surface-3 text-text'
                       : 'border-hairline text-text-dim hover:bg-surface-2'
                   }`}
                 >

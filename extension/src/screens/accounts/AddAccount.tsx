@@ -108,7 +108,7 @@ export default function AddAccount() {
                     onClick={() => setHwPick(i)}
                     className={`flex h-row w-full items-center gap-3 rounded-control border px-3 text-left transition-colors duration-state ease-out ${
                       hwPick === i
-                        ? 'border-ember/50 bg-surface-2'
+                        ? 'border-accent/50 bg-surface-2'
                         : 'border-hairline bg-surface-1 hover:bg-surface-2'
                     }`}
                   >
@@ -123,7 +123,7 @@ export default function AddAccount() {
                         m/44'/60'/0'/{i}
                       </span>
                     </span>
-                    {hwPick === i && <Check size={16} className="shrink-0 text-ember" />}
+                    {hwPick === i && <Check size={16} className="shrink-0 text-accent" />}
                   </button>
                 ))}
               </div>

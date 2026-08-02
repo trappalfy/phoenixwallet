@@ -47,7 +47,7 @@ export default function PaymentMethodSheet({
               <span className="shrink-0 font-mono text-11 tabular-nums text-text-mute">
                 {method.feePercent}%
               </span>
-              {method.id === selected && <Check size={16} className="shrink-0 text-ember" />}
+              {method.id === selected && <Check size={16} className="shrink-0 text-accent" />}
             </button>
           )
         })}

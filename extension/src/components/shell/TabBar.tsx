@@ -34,7 +34,7 @@ export default function TabBar() {
             onClick={() => nav.reset(target)}
             className={[
               'flex flex-1 flex-col items-center justify-center gap-1 transition-colors duration-state ease-out',
-              on ? 'text-ember' : 'text-text-mute hover:text-text-dim',
+              on ? 'text-accent' : 'text-text-mute hover:text-text-dim',
             ].join(' ')}
           >
             <Icon size={20} />

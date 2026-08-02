@@ -77,7 +77,7 @@ export default function Home({ tab: tabParam }: { tab?: (typeof TABS)[number]['i
                   onChange={(e) =>
                     dispatch({ type: 'prefs/set', patch: { hideSmallBalances: e.target.checked } })
                   }
-                  className="h-3.5 w-3.5 accent-ember"
+                  className="h-3.5 w-3.5 accent-accent"
                 />
                 Hide small balances
               </label>

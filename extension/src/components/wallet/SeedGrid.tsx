@@ -28,10 +28,10 @@ export function SeedCell({
     tone === 'error'
       ? 'border-loss'
       : tone === 'filled'
-        ? 'border-ember/40'
+        ? 'border-accent/40'
         : // The slot awaiting input has to stand out from the ones queued behind it.
           tone === 'active'
-          ? 'border-dashed border-ember/60'
+          ? 'border-dashed border-accent/60'
           : tone === 'empty'
             ? 'border-dashed border-text-mute/40'
             : 'border-hairline'

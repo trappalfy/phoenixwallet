@@ -9,7 +9,7 @@ const ICONS = { success: Check, error: Alert, info: Info }
 const TONES: Record<ToastTone, string> = {
   success: 'text-gain',
   error: 'text-loss',
-  info: 'text-ember',
+  info: 'text-accent',
 }
 
 /**

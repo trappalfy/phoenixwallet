@@ -4,7 +4,7 @@ import PhoenixMark from '../brand/PhoenixMark'
 
 /**
  * QR rendered to SVG by `qrcode` (§9.5). White modules on a light plate rather
- * than ember-on-ink: scanners need luminance contrast, and a themed QR that
+ * than accent-on-ink: scanners need luminance contrast, and a themed QR that
  * cannot be read is decoration, not a feature.
  *
  * Error correction is H so the knocked-out square holding the mark does not cost
@@ -19,7 +19,7 @@ export default function QrPanel({ value }: { value: string }) {
       type: 'svg',
       errorCorrectionLevel: 'H',
       margin: 1,
-      color: { dark: '#0A0506', light: '#F7EDEA' },
+      color: { dark: '#0A0818', light: '#ECEAFF' },
     })
       .then((out) => live && setSvg(out))
       .catch(() => live && setSvg(null))

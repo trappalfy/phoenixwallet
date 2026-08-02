@@ -105,8 +105,8 @@ export default function ImportSeed({ initialTab }: { initialTab?: 'phrase' | 'ke
       </div>
 
       <div className="scroll-region flex-1 px-gutter pb-4 pt-3">
-        <div className="mb-3 flex gap-2.5 rounded-control border border-ember-hot/25 bg-ember-hot/[0.07] p-3">
-          <span className="mt-0.5 shrink-0 text-ember-hot">
+        <div className="mb-3 flex gap-2.5 rounded-control border border-accent-hot/25 bg-accent-hot/[0.07] p-3">
+          <span className="mt-0.5 shrink-0 text-accent-hot">
             <Alert size={16} />
           </span>
           {/* The DEMO chip is gone, but this stays: it is the one screen where a
@@ -128,7 +128,7 @@ export default function ImportSeed({ initialTab }: { initialTab?: 'phrase' | 'ke
                   <label
                     key={i}
                     className={`flex min-h-10 items-center gap-1 rounded-control border bg-surface-2 px-2 ${
-                      wrong ? 'border-loss' : right ? 'border-ember/40' : 'border-hairline'
+                      wrong ? 'border-loss' : right ? 'border-accent/40' : 'border-hairline'
                     }`}
                   >
                     <span className="w-3.5 shrink-0 text-right font-mono text-11 tabular-nums text-text-mute">

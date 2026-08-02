@@ -1,5 +1,5 @@
 // Identicon derived from the address, drawn as SVG (§7). Deterministic — the
-// same address always produces the same avatar — and confined to ember-family
+// same address always produces the same avatar — and confined to accent-family
 // hues so three accounts side by side still read as one product.
 
 /** FNV-1a. Not a security primitive; it only needs to be stable and well spread. */
@@ -28,9 +28,11 @@ export default function AccountAvatar({
   // SVG attribute for others.
   const bits = (shift: number) => h >>> shift
 
-  // Ember family: 0°–48° spans the logo's deep red through to its yellow.
-  const hueA = h % 48
-  const hueB = (hueA + 18 + (bits(8) % 14)) % 48
+  // Accent family: 234°–282° spans the mark's blue-violet through to its lavender.
+  const HUE_BASE = 234
+  const HUE_SPAN = 48
+  const hueA = h % HUE_SPAN
+  const hueB = (hueA + 18 + (bits(8) % 14)) % HUE_SPAN
   const rotation = bits(16) % 360
   const split = 38 + (bits(5) % 26) // where the two hues meet, 38–63%
   const bar = 3 + (bits(11) % 4) // stripe count, 3–6
@@ -47,9 +49,9 @@ export default function AccountAvatar({
     >
       <defs>
         <linearGradient id={id} gradientTransform={`rotate(${rotation} 0.5 0.5)`}>
-          <stop offset="0%" stopColor={`hsl(${hueA} 88% 42%)`} />
-          <stop offset={`${split}%`} stopColor={`hsl(${hueB} 92% 54%)`} />
-          <stop offset="100%" stopColor={`hsl(${(hueB + 10) % 48} 96% 62%)`} />
+          <stop offset="0%" stopColor={`hsl(${HUE_BASE + hueA} 88% 42%)`} />
+          <stop offset={`${split}%`} stopColor={`hsl(${HUE_BASE + hueB} 92% 54%)`} />
+          <stop offset="100%" stopColor={`hsl(${HUE_BASE + ((hueB + 10) % HUE_SPAN)} 96% 62%)`} />
         </linearGradient>
         <clipPath id={`${id}-clip`}>
           <circle cx="16" cy="16" r="16" />
@@ -64,7 +66,7 @@ export default function AccountAvatar({
             y="-8"
             width={2 + (bits(i * 3) % 4)}
             height="48"
-            fill="#0A0506"
+            fill="#0A0818"
             // Barely-there stripes read as noise, not identity. These carry most
             // of the per-account difference, so they have to actually be visible.
             opacity={0.34 + (bits(i * 2) % 10) / 40}

@@ -10,7 +10,7 @@ export default function DemoChip() {
   return (
     <span
       title="Demo build — mock data, no funds, no signing"
-      className="rounded-chip border border-hairline bg-surface-3 px-1.5 py-0.5 font-mono text-11 uppercase leading-none tracking-label text-ember-hot"
+      className="rounded-chip border border-hairline bg-surface-3 px-1.5 py-0.5 font-mono text-11 uppercase leading-none tracking-label text-accent-hot"
     >
       Demo
     </span>

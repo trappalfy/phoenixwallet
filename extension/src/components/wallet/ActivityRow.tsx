@@ -44,7 +44,7 @@ export default function ActivityRow({
     >
       <span
         className={`grid h-8 w-8 shrink-0 place-items-center rounded-pill border border-hairline ${
-          failed ? 'text-loss' : pending ? 'text-ember-hot' : 'text-text-dim'
+          failed ? 'text-loss' : pending ? 'text-accent-hot' : 'text-text-dim'
         }`}
       >
         <Icon size={16} />
@@ -53,7 +53,7 @@ export default function ActivityRow({
       <span className="min-w-0 flex-1">
         <span className="flex items-center gap-1.5">
           <span className="truncate text-15 text-text">{KIND_LABEL[entry.kind]}</span>
-          {pending && <Clock size={13} className="shrink-0 text-ember-hot" />}
+          {pending && <Clock size={13} className="shrink-0 text-accent-hot" />}
           {failed && <Alert size={13} className="shrink-0 text-loss" />}
         </span>
         <span className="block truncate font-mono text-11 text-text-mute">

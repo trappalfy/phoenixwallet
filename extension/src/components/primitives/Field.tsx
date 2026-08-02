@@ -24,7 +24,7 @@ export default function Field({ label, mono, error, hint, trailing, ...rest }: P
       <div
         className={[
           'mt-1.5 flex items-center gap-2 rounded-control border bg-surface-2 px-3',
-          'transition-colors duration-state ease-out focus-within:border-ember/50',
+          'transition-colors duration-state ease-out focus-within:border-accent/50',
           error ? 'border-loss' : 'border-hairline',
         ].join(' ')}
       >

@@ -67,7 +67,7 @@ export default function Receive() {
         </div>
 
         <p className="flex items-start gap-2 pt-4 text-12 text-text-dim">
-          <span className="mt-0.5 shrink-0 text-ember-hot">
+          <span className="mt-0.5 shrink-0 text-accent-hot">
             <Alert size={14} />
           </span>
           Send only {chain.name} assets to this address. Anything sent from another network is lost.
@@ -90,7 +90,7 @@ export default function Receive() {
                 <ChainGlyph id={c.id} size={20} />
               </span>
               <span className="flex-1 truncate text-15 text-text">{c.name}</span>
-              {c.id === chain.id && <Check size={16} className="text-ember" />}
+              {c.id === chain.id && <Check size={16} className="text-accent" />}
             </button>
           ))}
         </div>

@@ -40,7 +40,7 @@ export default function AccountList() {
               <div
                 key={a.id}
                 className={`flex items-center gap-2 rounded-card border pl-2 pr-1 transition-colors duration-state ease-out ${
-                  active ? 'border-ember/40 bg-surface-1' : 'border-hairline bg-surface-1/60'
+                  active ? 'border-accent/40 bg-surface-1' : 'border-hairline bg-surface-1/60'
                 }`}
               >
                 <button
@@ -55,7 +55,7 @@ export default function AccountList() {
                   <span className="min-w-0 flex-1">
                     <span className="flex items-center gap-1.5">
                       <span className="min-w-0 truncate text-15 text-text">{a.name}</span>
-                      {active && <Check size={14} className="shrink-0 text-ember" />}
+                      {active && <Check size={14} className="shrink-0 text-accent" />}
                     </span>
                     <span className="block truncate font-mono text-11 text-text-mute">
                       {truncateAddress(addressFor(a, state.activeChainId))}

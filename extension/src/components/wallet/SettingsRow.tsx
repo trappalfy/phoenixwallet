@@ -94,7 +94,7 @@ export function SettingsToggleRow({
         checked={checked}
         disabled={disabled}
         onChange={(e) => onChange(e.target.checked)}
-        className="h-4 w-4 shrink-0 accent-ember"
+        className="h-4 w-4 shrink-0 accent-accent"
       />
     </label>
   )

@@ -30,7 +30,7 @@ export default function ActionRow() {
           onClick={() => route && nav.push(route)}
           className="relative flex flex-col items-center gap-1.5 rounded-card border border-hairline bg-surface-1 py-2.5 transition-[transform,background-color] duration-press ease-out hover:bg-surface-2 active:scale-[0.97] disabled:pointer-events-none disabled:opacity-40"
         >
-          <span className="text-ember">
+          <span className="text-accent">
             <Icon size={20} />
           </span>
           <span className="text-12 text-text">{label}</span>

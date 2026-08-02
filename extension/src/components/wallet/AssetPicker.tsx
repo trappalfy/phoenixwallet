@@ -63,7 +63,7 @@ export default function AssetPicker({
                 {formatFiat(usdValue(token), currency)}
               </span>
             </span>
-            {token.symbol === selected && <Check size={16} className="shrink-0 text-ember" />}
+            {token.symbol === selected && <Check size={16} className="shrink-0 text-accent" />}
           </button>
         ))}
         {matches.length === 0 && (

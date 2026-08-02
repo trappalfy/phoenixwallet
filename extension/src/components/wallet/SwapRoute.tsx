@@ -26,7 +26,7 @@ export default function SwapRoute({ from, to }: { from: Token; to: Token }) {
           strokeDasharray="3 3"
         />
         {[14, 124, 286].map((cx) => (
-          <circle key={cx} cx={cx} cy="17" r="4" fill="currentColor" className="text-ember" />
+          <circle key={cx} cx={cx} cy="17" r="4" fill="currentColor" className="text-accent" />
         ))}
         <path d="M236 17 H286" stroke="currentColor" strokeWidth="1.5" className="text-hairline" strokeDasharray="3 3" />
       </svg>

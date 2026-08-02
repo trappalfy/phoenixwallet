@@ -10,7 +10,7 @@ type Props<T extends string> = {
 }
 
 /**
- * Ember underline that tweens to the active tab over 200 ms (§10). The rail is
+ * Accent underline that tweens to the active tab over 200 ms (§10). The rail is
  * measured from the live DOM rather than assuming equal widths, so a long label
  * cannot desync it.
  */
@@ -43,7 +43,7 @@ export default function Tabs<T extends string>({ items, active, onChange, label 
       <span
         data-tab-rail
         aria-hidden
-        className="absolute -bottom-px left-0 h-0.5 w-0 rounded-pill bg-ember"
+        className="absolute -bottom-px left-0 h-0.5 w-0 rounded-pill bg-accent"
       />
     </div>
   )

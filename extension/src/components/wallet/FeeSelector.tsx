@@ -54,7 +54,7 @@ export default function FeeSelector({
             onClick={() => onTier(t.id)}
             className={`rounded-control border px-2 py-2 text-center transition-colors duration-state ease-out ${
               t.id === tier
-                ? 'border-ember/50 bg-surface-3 text-text'
+                ? 'border-accent/50 bg-surface-3 text-text'
                 : 'border-hairline bg-surface-1 text-text-dim hover:bg-surface-2'
             }`}
           >

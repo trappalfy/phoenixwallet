@@ -54,7 +54,7 @@ export default function TxStatus({ activityId }: { activityId: string }) {
     >
       {/* Heat rail loops while pending, then stops (§10). */}
       <div className="absolute inset-x-0 top-0 h-0.5 overflow-hidden">
-        {!settled && <div data-heat-rail className="h-full w-1/3 bg-grad-ember" />}
+        {!settled && <div data-heat-rail className="h-full w-1/3 bg-grad-accent" />}
       </div>
 
       <div className="flex flex-1 flex-col items-center justify-center text-center">

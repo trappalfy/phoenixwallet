@@ -34,7 +34,7 @@ export default function NetworkSwitcher() {
       </span>
       <span className="min-w-0 flex-1 truncate text-15 text-text">{chain.name}</span>
       <span className="font-mono text-11 text-text-mute">{chain.symbol}</span>
-      {chain.id === state.activeChainId && <Check size={18} className="shrink-0 text-ember" />}
+      {chain.id === state.activeChainId && <Check size={18} className="shrink-0 text-accent" />}
     </button>
   )
 
@@ -69,7 +69,7 @@ export default function NetworkSwitcher() {
             type="checkbox"
             checked={showTestnets}
             onChange={(e) => dispatch({ type: 'prefs/set', patch: { showTestnets: e.target.checked } })}
-            className="h-4 w-4 accent-ember"
+            className="h-4 w-4 accent-accent"
           />
         </label>
         {showTestnets && <div className="space-y-0.5">{TESTNETS.filter(match).map(row)}</div>}
