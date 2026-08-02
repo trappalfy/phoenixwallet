@@ -2,7 +2,7 @@
 
 A Manifest V3 Chrome extension: a **complete, clickable prototype** of a self-custody wallet for
 eight networks (Ethereum, Solana, Bitcoin, Base, Arbitrum, Optimism, Polygon, Sui). Every screen,
-state and flow in `phoenix-wallet-PROMPT.md` is built and navigable. There is no key generation, no
+state and flow in `docs/phoenix-wallet-PROMPT.md` is built and navigable. There is no key generation, no
 crypto library, and no network call anywhere in the source — all data comes from `src/mock/`, a
 synchronous in-memory layer. See `HANDOFF.md` for exactly what a backend replaces and to what
 shape.

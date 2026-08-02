@@ -20,8 +20,7 @@ export const POPUP_H = 600
 /**
  * Dev shortcut (§8). There is no persistence, so the app would otherwise always
  * open on Welcome. Point this at any param-less route to open a flow directly
- * during review — `home` is the useful one. `kitchenSink` left the router in
- * Phase 7; the screen file stays for reference but is no longer reachable.
+ * during review — `home` is the useful one.
  */
 export type StartRoute = 'welcome' | 'unlock' | 'home' | 'swap' | 'settings'
 

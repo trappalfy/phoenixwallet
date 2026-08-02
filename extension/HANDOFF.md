@@ -1,7 +1,7 @@
 # Handoff — every `TODO(backend)`
 
 Phoenix Wallet's UI is complete; everything it currently shows comes from `src/mock/`, a
-synchronous, in-memory layer with no network calls (§2 of `phoenix-wallet-PROMPT.md`). A backend
+synchronous, in-memory layer with no network calls (§2 of `docs/phoenix-wallet-PROMPT.md`). A backend
 team replaces that layer — not the UI — by implementing the functions below to the same
 signatures. The types referenced throughout (`Token`, `Nft`, `Activity`, `Account`, ...) are
 already defined in `src/mock/` and are the intended real shapes; nothing about them is a stopgap.

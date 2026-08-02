@@ -23,7 +23,7 @@ Everything here is submission material — none of it ships inside the extension
    wants a **URL** for the privacy policy, not pasted text — host `privacy-policy.md`'s content
    somewhere reachable (a page on the landing site, a GitHub Pages page, even a gist) and paste
    that URL. Fill in the real contact address in `privacy-policy.md` first.
-5. **Visibility: set to Unlisted**, not Public — see `phoenix-wallet-PROMPT.md`'s §14 note and the
+5. **Visibility: set to Unlisted**, not Public — see `docs/phoenix-wallet-PROMPT.md`'s §14 note and the
    earlier discussion: this is a demo wallet with no real wallet functionality, and a public
    "Phoenix Wallet" listing risks both store-review rejection under crypto-wallet scrutiny and a
    real user mistaking it for a working wallet. Unlisted still yields a working

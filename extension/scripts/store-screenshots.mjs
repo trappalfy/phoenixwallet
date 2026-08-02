@@ -5,8 +5,8 @@
 //
 //   npm run build && npx vite preview --port 4180 &
 //   node scripts/store-screenshots.mjs http://localhost:4180
-import { chromium } from '../../node_modules/playwright/index.mjs'
-import sharp from '../node_modules/sharp/dist/index.mjs'
+import { chromium } from 'playwright'
+import sharp from 'sharp'
 import { mkdirSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 

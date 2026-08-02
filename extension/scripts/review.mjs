@@ -6,12 +6,8 @@
 //   node scripts/review.mjs shots  http://localhost:4180 out.png [frames]
 //   node scripts/review.mjs walk   http://localhost:4180 out.png
 //
-// Playwright lives in the landing site's node_modules at the repo root; this
-// package deliberately does not depend on it.
-const ROOT = new URL('../../', import.meta.url).pathname
-const { chromium } = await import(`${ROOT}node_modules/playwright/index.mjs`)
-const sharp = (await import(new URL('../node_modules/sharp/dist/index.mjs', import.meta.url).pathname))
-  .default
+const { chromium } = await import('playwright')
+const sharp = (await import('sharp')).default
 const { execSync } = await import('node:child_process')
 const SRC = new URL('../src/', import.meta.url).pathname
 

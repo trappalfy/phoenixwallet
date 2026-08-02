@@ -5,11 +5,14 @@
 //   node scripts/check-mock.mjs
 import { build } from 'esbuild'
 import { readFile, rm } from 'node:fs/promises'
+import { fileURLToPath, pathToFileURL } from 'node:url'
 
-const OUT = new URL('../.mock-check.mjs', import.meta.url).pathname
+// fileURLToPath, not .pathname: on Windows the latter yields "/C:/..." with a
+// leading slash, which neither esbuild nor import() can resolve.
+const OUT = fileURLToPath(new URL('../.mock-check.mjs', import.meta.url))
 
 await build({
-  entryPoints: [new URL('../src/mock/index-for-check.ts', import.meta.url).pathname],
+  entryPoints: [fileURLToPath(new URL('../src/mock/index-for-check.ts', import.meta.url))],
   bundle: true,
   format: 'esm',
   platform: 'node',
@@ -17,7 +20,7 @@ await build({
   logLevel: 'error',
 })
 
-const m = await import(OUT + `?t=${Date.now()}`)
+const m = await import(pathToFileURL(OUT).href + `?t=${Date.now()}`)
 await rm(OUT)
 
 const fails = []
