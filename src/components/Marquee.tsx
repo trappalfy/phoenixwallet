@@ -25,7 +25,7 @@ function Row({ items, reverse = false }: { items: readonly string[]; reverse?: b
       {[...items, ...items].map((name, i) => (
         <span
           key={`${name}-${i}`}
-          className="font-display text-[clamp(1.5rem,3vw,2.5rem)] font-medium tracking-display text-bone/[0.14]"
+          className="font-display text-[clamp(1.5rem,3vw,2.5rem)] font-medium tracking-display text-ink/[0.14]"
         >
           {name}
         </span>

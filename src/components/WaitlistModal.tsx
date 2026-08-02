@@ -57,7 +57,7 @@ export default function WaitlistModal({ open, onClose }: Props) {
 
   return (
     <div
-      className="fixed inset-0 z-[95] flex items-center justify-center bg-void/80 p-6"
+      className="fixed inset-0 z-[95] flex items-center justify-center bg-base/80 p-6"
       onMouseDown={(e) => {
         if (e.target === e.currentTarget) onClose()
       }}
@@ -67,12 +67,12 @@ export default function WaitlistModal({ open, onClose }: Props) {
         role="dialog"
         aria-modal="true"
         aria-labelledby="waitlist-title"
-        className="relative w-full max-w-md rounded-card border border-hairline bg-soot p-8"
+        className="relative w-full max-w-md rounded-card border border-subtle bg-surface p-8"
       >
         <button
           onClick={onClose}
           aria-label="Close"
-          className="absolute right-4 top-4 grid h-9 w-9 place-items-center rounded-pill text-smoke transition-colors hover:text-bone"
+          className="absolute right-4 top-4 grid h-9 w-9 place-items-center rounded-pill text-haze transition-colors hover:text-ink"
         >
           <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" aria-hidden>
             <path d="M6 6l12 12M18 6 6 18" />
@@ -81,13 +81,13 @@ export default function WaitlistModal({ open, onClose }: Props) {
 
         {done ? (
           <div>
-            <p className="font-mono text-label uppercase text-flare">✦ confirmed</p>
-            <h2 id="waitlist-title" className="mt-3 font-display text-[28px] font-bold tracking-display text-bone">
+            <p className="font-mono text-label uppercase text-accent-400">✦ confirmed</p>
+            <h2 id="waitlist-title" className="mt-3 font-display text-[28px] font-bold tracking-display text-ink">
               {waitlist.success}
             </h2>
-            <p className="mt-3 text-body text-smoke">{waitlist.successBody}</p>
-            <div className="mt-6 flex items-center gap-2 rounded-input border border-hairline bg-ash/60 px-4 py-3 font-mono text-[13px] text-bone">
-              <span className="text-ember">→</span>
+            <p className="mt-3 text-body text-haze">{waitlist.successBody}</p>
+            <div className="mt-6 flex items-center gap-2 rounded-input border border-subtle bg-elevated/60 px-4 py-3 font-mono text-[13px] text-ink">
+              <span className="text-accent-500">→</span>
               <span className="truncate">{email}</span>
             </div>
           </div>
@@ -99,10 +99,10 @@ export default function WaitlistModal({ open, onClose }: Props) {
             }}
             noValidate
           >
-            <h2 id="waitlist-title" className="font-display text-[28px] font-bold tracking-display text-bone">
+            <h2 id="waitlist-title" className="font-display text-[28px] font-bold tracking-display text-ink">
               {waitlist.title}
             </h2>
-            <p className="mt-3 text-body text-smoke">{waitlist.body}</p>
+            <p className="mt-3 text-body text-haze">{waitlist.body}</p>
             <label htmlFor="waitlist-email" className="sr-only">
               Email address
             </label>
@@ -119,17 +119,17 @@ export default function WaitlistModal({ open, onClose }: Props) {
                 if (status === 'error') reset()
               }}
               aria-invalid={status === 'error'}
-              className="mt-6 w-full rounded-input border border-hairline bg-ash/60 px-4 py-3.5 font-mono text-[14px] text-bone placeholder:text-smoke/60 focus:border-ember/50"
+              className="mt-6 w-full rounded-input border border-subtle bg-elevated/60 px-4 py-3.5 font-mono text-[14px] text-ink placeholder:text-haze/60 focus:border-accent-500/50"
             />
             {status === 'error' && (
-              <p role="alert" className="mt-2 font-mono text-[12px] text-ember">
+              <p role="alert" className="mt-2 font-mono text-[12px] text-accent-500">
                 {waitlist.invalid}
               </p>
             )}
             <button
               type="submit"
               disabled={status === 'submitting'}
-              className="mt-4 w-full rounded-pill bg-ember py-3.5 text-[15px] font-medium text-void transition-opacity hover:opacity-90 disabled:opacity-60"
+              className="mt-4 w-full rounded-pill bg-accent-500 py-3.5 text-[15px] font-medium text-base transition-opacity hover:opacity-90 disabled:opacity-60"
             >
               {status === 'submitting' ? 'Adding you…' : waitlist.button}
             </button>

@@ -8,7 +8,7 @@ export default function BentoGrid() {
   return (
     <section id="product" className="relative px-6 py-24 md:py-32">
       <div className="relative z-10 mx-auto max-w-[1200px]">
-        <p data-reveal className="font-mono text-label uppercase text-smoke">
+        <p data-reveal className="font-mono text-label uppercase text-haze">
           {bento.label}
         </p>
         <div className="mt-10 grid grid-cols-1 gap-4 md:grid-cols-3">

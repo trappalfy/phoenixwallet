@@ -18,11 +18,11 @@ function StoreCta({ onWaitlist }: { onWaitlist: () => void }) {
     return (
       <span
         aria-disabled="true"
-        className={`${PILL} cursor-not-allowed border border-hairline bg-bone/[0.04] text-smoke`}
+        className={`${PILL} cursor-not-allowed border border-subtle bg-ink/[0.04] text-haze`}
       >
         {product.unsupportedLabel}
-        <span className={`${BADGE} bg-bone/[0.06]`}>
-          <Arrow className="h-3.5 w-3.5 text-smoke" />
+        <span className={`${BADGE} bg-ink/[0.06]`}>
+          <Arrow className="h-3.5 w-3.5 text-haze" />
         </span>
       </span>
     )
@@ -31,12 +31,12 @@ function StoreCta({ onWaitlist }: { onWaitlist: () => void }) {
   const inner = (
     <>
       {nav.cta}
-      <span className={`${BADGE} bg-void group-hover:rotate-45`}>
-        <Arrow className="h-3.5 w-3.5 text-ember" />
+      <span className={`${BADGE} bg-base group-hover:rotate-45`}>
+        <Arrow className="h-3.5 w-3.5 text-accent-500" />
       </span>
     </>
   )
-  const live = `${PILL} bg-ember text-void hover:scale-[1.02]`
+  const live = `${PILL} bg-accent-500 text-base hover:scale-[1.02]`
 
   return product.chromeStoreUrl ? (
     <a href={product.chromeStoreUrl} target="_blank" rel="noopener noreferrer" className={live}>
@@ -63,7 +63,7 @@ export default function Nav({
     <header
       data-load="nav"
       className={`fixed inset-x-0 top-0 z-50 h-[68px] border-b transition-colors duration-300 ${
-        scrolled ? 'border-hairline bg-void/[0.88] backdrop-blur-md' : 'border-transparent'
+        scrolled ? 'border-subtle bg-base/[0.88] backdrop-blur-md' : 'border-transparent'
       }`}
     >
       <nav
@@ -76,7 +76,7 @@ export default function Nav({
           aria-label={`${brand.name} — home`}
         >
           <img src="/brand/phoenix-mark.png" alt="" className="h-6 w-auto" />
-          <span className="font-display text-[19px] font-bold tracking-display text-bone">
+          <span className="font-display text-[19px] font-bold tracking-display text-ink">
             {brand.name}
           </span>
         </a>

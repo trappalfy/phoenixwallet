@@ -61,7 +61,7 @@ export default function App() {
       <main>
         <Hero />
         {/* opaque backdrop: covers the fixed shader once the hero scrolls away */}
-        <div className="relative z-10 bg-void">
+        <div className="relative z-10 bg-base">
           <BentoGrid />
           <Showcase />
           <Security />

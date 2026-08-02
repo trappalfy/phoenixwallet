@@ -41,7 +41,7 @@ export default function BentoCard({ icon, title, body, className = '' }: Props) 
       onPointerMove={onMove}
       onPointerEnter={() => setGlow('1')}
       onPointerLeave={onLeave}
-      className={`group relative overflow-hidden rounded-card border border-hairline bg-soot p-7 transition-[border-color,transform] duration-200 ease-out hover:border-bone/20 ${className}`}
+      className={`group relative overflow-hidden rounded-card border border-subtle bg-surface p-7 transition-[border-color,transform] duration-200 ease-out hover:border-ink/20 ${className}`}
       style={{ transformStyle: 'preserve-3d' }}
     >
       <div
@@ -49,15 +49,15 @@ export default function BentoCard({ icon, title, body, className = '' }: Props) 
         className="pointer-events-none absolute inset-0 opacity-[var(--glow,0)] transition-opacity duration-300"
         style={{
           background:
-            'radial-gradient(260px circle at var(--mx,50%) var(--my,50%), rgba(255,90,31,0.16), transparent 70%)',
+            'radial-gradient(260px circle at var(--mx,50%) var(--my,50%), rgba(139,92,246,0.16), transparent 70%)',
         }}
       />
       <div className="relative">
-        <BentoIcon name={icon} className="h-7 w-7 text-flare" />
-        <h3 className="mt-5 font-display text-[22px] font-medium tracking-[-0.02em] text-bone">
+        <BentoIcon name={icon} className="h-7 w-7 text-accent-400" />
+        <h3 className="mt-5 font-display text-[22px] font-medium tracking-[-0.02em] text-ink">
           {title}
         </h3>
-        <p className="mt-3 text-body text-smoke">{body}</p>
+        <p className="mt-3 text-body text-haze">{body}</p>
       </div>
     </div>
   )
