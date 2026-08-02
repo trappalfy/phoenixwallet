@@ -1,24 +1,38 @@
 import type { Config } from 'tailwindcss'
 
-// Tokens live here, not as scattered arbitrary values (brief §3).
-// Only fire hues exist — the palette is replaced (not extended) so a stray
-// blue/purple/cyan util can't compile. See brief §9.
+// Tokens live here, not as scattered arbitrary values. Only the Perigee
+// ramp exists — the palette is replaced (not extended) so a stray
+// red/orange/yellow util can't compile. Values come from CSS custom
+// properties in src/index.css :root, which is the single source of truth
+// for hex; src/theme/colors.ts mirrors them for code that can't read CSS
+// (GLSL, canvas).
 export default {
   content: ['./index.html', './install.html', './src/**/*.{ts,tsx}'],
   theme: {
     colors: {
       transparent: 'transparent',
       current: 'currentColor',
-      void: '#07060A', // page background
-      soot: '#0F0D12', // card / surface
-      ash: '#1A171D', // raised surface, borders
-      core: '#FFE9C4', // white-hot centre of the glow (use sparingly)
-      flare: '#FFA53D', // secondary orange, hover, gradient midpoint
-      ember: '#FF5A1F', // primary — CTA fills, active states, the thread
-      coal: '#7A1E00', // deep outer glow, decorative only, NEVER text
-      bone: '#F2EEE8', // primary text
-      smoke: '#9A928C', // secondary text
-      hairline: 'rgba(242,238,232,0.08)', // borders
+      base: 'var(--bg-base)', // page background; also the dark text on an accent fill
+      surface: 'var(--bg-surface)', // card / panel
+      elevated: 'var(--bg-elevated)', // raised surface, borders
+      ink: 'var(--text-primary)', // primary text
+      haze: 'var(--text-secondary)', // secondary text
+      subtle: 'var(--border-subtle)', // hairline borders
+      accent: {
+        300: 'var(--accent-300)', // brightest — text-scale accents, glow cores
+        400: 'var(--accent-400)', // secondary accent, icons, hover
+        500: 'var(--accent-500)', // primary — CTA fills, focus rings, the brand
+        600: 'var(--accent-600)', // pressed states, gradient midpoint
+        800: 'var(--accent-800)', // deep outer glow, decorative only, NEVER text
+      },
+      blue: {
+        400: 'var(--blue-400)',
+        500: 'var(--blue-500)',
+        600: 'var(--blue-600)',
+      },
+      cyan: {
+        400: 'var(--cyan-400)', // hottest point of a glow — used sparingly
+      },
     },
     fontFamily: {
       display: ['"Cabinet Grotesk"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
