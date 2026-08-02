@@ -134,7 +134,8 @@ export default function About() {
         </p>
 
         <SettingsGroup label="This build">
-          <SettingsValueRow first label="Browser permissions" value="None requested" />
+          <SettingsValueRow first label="Type" value="Interface preview" />
+          <SettingsValueRow label="Browser permissions" value="None requested" />
           <SettingsValueRow label="Network requests" value="None" />
           <SettingsValueRow label="Data collected" value="None" />
         </SettingsGroup>
@@ -152,9 +153,13 @@ export default function About() {
           ))}
         </SettingsGroup>
 
+        {/* The one place the build states plainly what it is. Wording is load-
+            bearing: it is the disclosure the store listing points at, so it has
+            to stay accurate if the mock layer ever changes. */}
         <p className="pt-5 text-11 leading-relaxed text-text-mute">
-          The recovery phrase shown in this build is a fixed sample. It derives no keys, controls no
-          address and holds no funds.
+          This is a preview of the interface, running on locally generated sample data. It connects
+          to no network, derives no keys, and cannot hold, send or receive real funds. The recovery
+          phrase it shows is display text — it unlocks nothing, here or anywhere else.
         </p>
       </div>
 

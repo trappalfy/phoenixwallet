@@ -2,13 +2,15 @@ import type { AddressFormat, ChainId } from './chains'
 import { getChain } from './chains'
 
 /**
- * NOT A VALID WALLET. The twelve words belonging to the sample wallet — the one
- * restored on the import path. They derive no keys, control no address and hold
- * no funds. Nothing in this codebase implements BIP-39 — see §2.
+ * NOT A VALID WALLET. The twelve words belonging to the sample wallet below.
+ * They derive no keys, control no address and hold no funds. Nothing in this
+ * codebase implements BIP-39 — see §2.
  *
- * This stays a constant on purpose even though created wallets now get their own
- * phrase: `ImportSeed` checks what is typed against exactly these words, which is
- * what stops a real recovery phrase from ever being accepted.
+ * No screen reads this any more: the import flow that used to check typed words
+ * against it was removed, because a recovery-phrase field is the exact shape of
+ * a wallet-phishing extension and there is no keyring here for a real phrase to
+ * unlock. Kept as the sample wallet's phrase for the fixtures and for whoever
+ * implements the real keyring.
  */
 export const RECOVERY_PHRASE = [
   'signal', 'harbor', 'velvet', 'oxide',
@@ -86,6 +88,12 @@ export type Account = {
   addresses: Record<AddressFormat, string>
 }
 
+/**
+ * The funded sample wallet. **No screen reaches these** — the extension always
+ * starts on `FRESH_ACCOUNTS` below. Kept because the whole mock layer (tokens,
+ * activity, NFTs, connected sites) is keyed off these ids and `check:mock`
+ * verifies them, so they are the fixtures a real backend gets tested against.
+ */
 export const ACCOUNTS: readonly Account[] = [
   {
     id: 'acc-main',
@@ -150,11 +158,10 @@ export function newAddresses(): Account['addresses'] {
  * Declared *after* the generator above on purpose — it calls it at module load,
  * and `const pick` is not hoisted the way a function declaration is.
  *
- * The three seeded accounts are a *funded* wallet, belonging to someone who has
- * been using Perigee for months. Handing them to a user who has just written
- * down a recovery phrase would claim they already own $15,000 and a swap
- * history, which is the one lie a wallet cannot tell. Those accounts come back
- * by restoring the sample phrase — exactly how a real wallet returns them.
+ * This is the only wallet the extension ever shows. The funded `ACCOUNTS` above
+ * are fixtures with no route to them: showing an installed user someone else's
+ * $15,000 and swap history is the one lie a wallet cannot tell, and a store
+ * reviewer reads invented balances as exactly that.
  */
 export const FRESH_ACCOUNTS: readonly Account[] = [
   {

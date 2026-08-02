@@ -80,8 +80,11 @@ Other scripts, not part of the gate: `generate-icons.mjs` (toolbar icons from th
 
 ## What this is not
 
-- Not a real wallet: no keys are ever generated or derived, nothing is cryptographically signed,
-  and `ImportSeed` only ever accepts the one fixed sample phrase in `src/mock/db.ts` — a real
-  recovery phrase is rejected by construction.
+- Not a real wallet: no keys are ever generated or derived and nothing is cryptographically
+  signed. There is no import flow at all — a field that accepts a twelve-word recovery phrase is
+  the shape of a phishing extension, and there is no keyring here for a real phrase to unlock, so
+  the screen was removed rather than guarded.
+- Never shows money it does not have: the only wallet reachable from the UI is a freshly created,
+  empty one. The funded `ACCOUNTS` fixtures in `src/mock/db.ts` have no route to them.
 - Not connected to anything: `manifest.json` requests zero permissions, and
   `grep -rE "fetch\(|ethers|web3|bip39|https?://" src/` returns nothing.

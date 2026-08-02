@@ -3,13 +3,13 @@
 // than a dead end found in review.
 
 export type Route =
-  // onboarding
+  // onboarding — create only. There is no import route: a screen asking for a
+  // twelve-word recovery phrase is the exact shape of a wallet-phishing
+  // extension, and this build has no keyring for a real phrase to unlock.
   | { name: 'welcome' }
-  | { name: 'createOrImport' }
   | { name: 'setPassword' }
   | { name: 'seedReveal' }
   | { name: 'seedConfirm' }
-  | { name: 'importSeed'; tab?: 'phrase' | 'key' }
   | { name: 'ready' }
   // gate
   | { name: 'unlock' }
@@ -50,11 +50,9 @@ export type RouteName = Route['name']
  */
 const FULL_BLEED = new Set<RouteName>([
   'welcome',
-  'createOrImport',
   'setPassword',
   'seedReveal',
   'seedConfirm',
-  'importSeed',
   'ready',
   'unlock',
   'sendTo',
@@ -72,11 +70,9 @@ export const isFullBleed = (route: Route) => FULL_BLEED.has(route.name)
 /** Onboarding and unlock also hide the header. */
 const NO_HEADER = new Set<RouteName>([
   'welcome',
-  'createOrImport',
   'setPassword',
   'seedReveal',
   'seedConfirm',
-  'importSeed',
   'ready',
   'unlock',
 ])

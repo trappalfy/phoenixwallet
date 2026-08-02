@@ -18,14 +18,12 @@ export default function Welcome() {
         </p>
       </div>
 
-      <div className="space-y-2">
-        <Button block onClick={() => nav.push({ name: 'createOrImport' })}>
-          Create a new wallet
-        </Button>
-        <Button block variant="ghost" onClick={() => nav.push({ name: 'importSeed' })}>
-          I already have a wallet
-        </Button>
-      </div>
+      {/* A single action: there is no import path, so the create/import chooser
+          that used to sit between here and the password step had one option left
+          and was a dead click. */}
+      <Button block onClick={() => nav.push({ name: 'setPassword' })}>
+        Create a new wallet
+      </Button>
     </div>
   )
 }

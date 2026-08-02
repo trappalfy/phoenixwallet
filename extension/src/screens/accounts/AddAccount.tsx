@@ -5,7 +5,7 @@ import Field from '../../components/primitives/Field'
 import { SettingsGroup, SettingsNavRow } from '../../components/wallet/SettingsRow'
 import { useWallet } from '../../state/WalletProvider'
 import { useNav } from '../../router/useNav'
-import { Plus, Download, Key, Shield, Check } from '../../components/icons'
+import { Plus, Shield, Check } from '../../components/icons'
 
 type Mode = 'menu' | 'create' | 'hardware'
 type HwStep = 'device' | 'searching' | 'found'
@@ -181,18 +181,6 @@ export default function AddAccount() {
             label="Create new"
             detail="A fresh account in this wallet"
             onClick={() => setMode('create')}
-          />
-          <SettingsNavRow
-            icon={<Download size={18} />}
-            label="Import recovery phrase"
-            detail="Twelve or twenty-four words"
-            onClick={() => nav.push({ name: 'importSeed' })}
-          />
-          <SettingsNavRow
-            icon={<Key size={18} />}
-            label="Import private key"
-            detail="Bring in a single account"
-            onClick={() => nav.push({ name: 'importSeed', tab: 'key' })}
           />
           <SettingsNavRow
             icon={<Shield size={18} />}

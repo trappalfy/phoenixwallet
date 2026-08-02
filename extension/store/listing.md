@@ -4,15 +4,19 @@ Paste-ready text for the dashboard's listing fields. Trim if a field's character
 the dashboard enforces the exact current limits, which are worth trusting over any number written
 here.
 
-**On tone:** the summary and the top of the description read like an ordinary product listing —
-no "demo" language up front, because there is nothing dishonest about confident product copy. The
-one disclosure line sits at the *end* of the description in plain sentence case, not hidden by any
-deceptive means (no tiny font, no matching-background trick) — just placed where marketing copy
-normally puts secondary information, rather than leading with it. That is a different thing from
-burying it so a real user cannot find it: this is a crypto-wallet-shaped listing, and Google's
-review specifically targets exactly that category for deceptive functionality, for good reason —
-fake-wallet listings are a real scam pattern. Anyone who reads the description in full still gets
-the truth.
+## The rule this copy exists to obey
+
+**Never name a blockchain or a token in the listing metadata.** An earlier submission was rejected
+as spam for the line _"Self-custody wallet for Ethereum, Solana, Bitcoin and five more networks"_,
+and the description below it went further and named all eight. Coin names are among the most
+contested search terms on the store, so a short summary stacked with three of them reads to
+Google's Spam and Abuse policy (Keyword Spam) as ranking manipulation rather than description.
+Describe what the product *does*; let the screenshots show which networks appear in the UI.
+
+The disclosure paragraph sits at the end of the description — after the reader knows what the
+thing is, which is where secondary information normally goes — but it is written plainly, in the
+same size and voice as everything above it. It is not hidden, and it must not be cut: the product
+shows a wallet that holds nothing and connects to nothing, and the listing has to say so.
 
 ## Name
 
@@ -20,21 +24,26 @@ Perigee Wallet
 
 ## Summary (short description)
 
-A self-custody wallet interface for Ethereum, Solana, Bitcoin and five more networks.
+Wallet interface for managing accounts, transfers, swaps and activity, running entirely on local
+sample data.
 
 ## Description
 
-Perigee Wallet gives you full control of your keys across eight networks — Ethereum, Solana,
-Bitcoin, Base, Arbitrum, Optimism, Polygon and Sui. Send, receive, swap and buy crypto from one
-clean interface.
+Perigee is a self-custody wallet interface — a complete, navigable front end for creating an
+account, receiving and sending assets, swapping, buying, and reviewing transaction history, with
+multi-network switching and a full settings surface.
 
-- Self-custodial: your keys never leave your device.
-- Zero network requests, zero permissions requested — nothing you do is uploaded anywhere.
-- Explore accounts, transactions, swaps, buys and settings across all eight networks.
+- Nothing is uploaded. The extension makes no network requests of any kind: no analytics, no
+  crash reporting, no third-party SDKs.
+- No permissions. It requests none, and cannot read your browsing activity, your other tabs, or
+  any website's content.
+- Nothing is stored. State lives in memory while the popup is open and is discarded when it
+  closes.
 
-This build currently runs on sample data for preview purposes. Balances, prices and transaction
-history shown are not real funds, and the recovery-phrase screen only accepts one fixed sample
-phrase — a real recovery phrase typed in is rejected.
+What this build is: a preview of the interface, running on locally generated sample data. It does
+not connect to any blockchain, generates no real keys, and cannot hold, send or receive real
+funds. A wallet created here starts empty and stays empty — the balances you see are zero because
+there is nothing behind them.
 
 ## Category
 

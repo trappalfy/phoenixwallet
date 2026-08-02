@@ -3,7 +3,6 @@ import BackBar from '../../components/shell/BackBar'
 import Field from '../../components/primitives/Field'
 import Button from '../../components/primitives/Button'
 import { useNav } from '../../router/useNav'
-import { useWallet } from '../../state/WalletProvider'
 import { Check, Close } from '../../components/icons'
 
 // §2.2 — any input of 8+ characters is accepted and nothing is stored anywhere.
@@ -26,7 +25,6 @@ function strengthOf(value: string): number {
 
 export default function SetPassword() {
   const nav = useNav()
-  const { state } = useWallet()
   const [password, setPassword] = useState('')
   const [confirm, setConfirm] = useState('')
   const [acknowledged, setAcknowledged] = useState(false)
@@ -108,17 +106,7 @@ export default function SetPassword() {
       </div>
 
       <div className="shrink-0 px-gutter pb-5 pt-2">
-        {/* Someone who arrived here by importing has already written their phrase
-            down — showing it back and asking them to confirm it is busywork. */}
-        <Button
-          block
-          disabled={!canContinue}
-          onClick={() =>
-            nav.push({
-              name: state.nav.stack.some((r) => r.name === 'importSeed') ? 'ready' : 'seedReveal',
-            })
-          }
-        >
+        <Button block disabled={!canContinue} onClick={() => nav.push({ name: 'seedReveal' })}>
           Continue
         </Button>
       </div>
