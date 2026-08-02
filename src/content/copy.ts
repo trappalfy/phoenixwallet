@@ -2,8 +2,8 @@
 // Edit copy here, never in JSX. Fake/placeholder specifics are marked `TODO: swap for real`.
 
 export const brand = {
-  name: 'Phoenix',
-  full: 'Phoenix Wallet',
+  name: 'Perigee',
+  full: 'Perigee Wallet',
 } as const
 
 export const nav = {
@@ -37,8 +37,8 @@ export const hero = {
   eyebrow: '✦ Extension + iOS + Android — waitlist open',
   line1: 'Hold your own keys.',
   line2: 'Nothing leaves the device.',
-  sub: 'Phoenix generates and signs on your machine. The seed phrase never touches our servers, because there are no servers. 40+ networks, one wallet, zero accounts.',
-  ctaPrimary: 'Get Phoenix',
+  sub: 'Perigee generates and signs on your machine. The seed phrase never touches our servers, because there are no servers. 40+ networks, one wallet, zero accounts.',
+  ctaPrimary: 'Get Perigee',
   ctaSecondary: 'Read the security model',
   networksLabel: 'Supported networks',
   // ids map to inline SVG marks in src/lib/icons.tsx
@@ -127,11 +127,11 @@ export const security = {
     },
     {
       label: 'Hardware',
-      body: 'Pair a Ledger or Trezor and the key never leaves it — Phoenix only talks to the device.',
+      body: 'Pair a Ledger or Trezor and the key never leaves it — Perigee only talks to the device.',
       href: null,
     },
   ],
-  cantHeading: "Things Phoenix can't do",
+  cantHeading: "Things Perigee can't do",
   cant: [
     'Recover your seed phrase',
     'Freeze or reverse your funds',
@@ -181,9 +181,9 @@ export const footer = {
       links: ['Privacy', 'Terms', 'Disclosures'],
     },
   ],
-  copyright: `© ${2026} Phoenix`, // TODO: keep year current
+  copyright: `© ${2026} Perigee`, // TODO: keep year current
   smallprint:
-    'Phoenix is non-custodial software. You are responsible for your own keys.',
+    'Perigee is non-custodial software. You are responsible for your own keys.',
 } as const
 
 // /install — the six-step "load unpacked" walkthrough. `code` renders as
@@ -191,20 +191,20 @@ export const footer = {
 // from a web page, so an <a href="chrome://extensions"> silently does nothing.
 export const install = {
   eyebrow: '✦ No store required',
-  line1: 'Add Phoenix',
+  line1: 'Add Perigee',
   line2: 'to your browser.',
   sub: 'Two minutes, no account. Works on Chrome, Edge and Brave today; the Chrome Web Store listing is on the way.',
-  download: 'Download Phoenix',
+  download: 'Download Perigee',
   secondary: 'Read the security model',
   updateNote:
-    'Loaded this way, Phoenix does not update itself — grab a newer package here when one ships.',
+    'Loaded this way, Perigee does not update itself — grab a newer package here when one ships.',
   unsupported:
-    'Phoenix is a Chromium extension. Open this page in Chrome, Edge, Brave or Opera on a desktop to install it.',
+    'Perigee is a Chromium extension. Open this page in Chrome, Edge, Brave or Opera on a desktop to install it.',
   steps: [
     {
       icon: 'download',
       title: 'Download the extension',
-      body: "Grab the Phoenix package and unzip it somewhere you'll remember. It's a standard unpacked Chrome extension — no installer, no account.",
+      body: "Grab the Perigee package and unzip it somewhere you'll remember. It's a standard unpacked Chrome extension — no installer, no account.",
     },
     {
       icon: 'puzzle',
@@ -222,12 +222,12 @@ export const install = {
     {
       icon: 'folder',
       title: 'Load unpacked → pick the folder',
-      body: 'Click "Load unpacked" and select the unzipped folder. Phoenix appears in your toolbar — pin it so it is one click away.',
+      body: 'Click "Load unpacked" and select the unzipped folder. Perigee appears in your toolbar — pin it so it is one click away.',
     },
     {
       icon: 'enclave',
       title: 'Create your wallet',
-      body: 'Open Phoenix, set a password, and write down your 12-word recovery phrase. Keys are generated and encrypted on your device — never sent anywhere.',
+      body: 'Open Perigee, set a password, and write down your 12-word recovery phrase. Keys are generated and encrypted on your device — never sent anywhere.',
     },
     {
       icon: 'networks',
@@ -237,15 +237,15 @@ export const install = {
   ],
   safetyTitle: 'A word on safety',
   safetyBody:
-    'Phoenix is self-custody: your recovery phrase is the only way back in, and no one — not us — can recover it for you. Store it offline, never paste it into a website, and only approve transactions you understand.',
+    'Perigee is self-custody: your recovery phrase is the only way back in, and no one — not us — can recover it for you. Store it offline, never paste it into a website, and only approve transactions you understand.',
 } as const
 
 export const waitlist = {
   title: 'Join the waitlist',
-  body: 'Phoenix ships as a browser extension and iOS/Android app. Drop your email and we’ll tell you the moment it’s live. No account, no spam.',
+  body: 'Perigee ships as a browser extension and iOS/Android app. Drop your email and we’ll tell you the moment it’s live. No account, no spam.',
   emailPlaceholder: 'you@domain.com',
   button: 'Request access',
   success: "You're on the list.",
-  successBody: "We'll email you when Phoenix is ready. Nothing else.",
+  successBody: "We'll email you when Perigee is ready. Nothing else.",
   invalid: 'Enter a valid email.',
 } as const

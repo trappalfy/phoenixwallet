@@ -1,4 +1,4 @@
-// Scan "PHOENIX" into horizontal stroke rows (FOOTER-SPEC §13.3). The word is
+// Scan "PERIGEE" into horizontal stroke rows (FOOTER-SPEC §13.3). The word is
 // drawn to an offscreen canvas in Cabinet Grotesk Bold, then read row by row;
 // each row becomes a set of [x0,x1] segments (the ink spans on that scanline).
 //
