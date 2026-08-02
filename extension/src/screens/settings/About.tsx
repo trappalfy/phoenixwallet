@@ -72,9 +72,11 @@ function LinkContent({ id, onCopy }: { id: LinkId; onCopy: (text: string) => voi
   if (id === 'support') {
     return (
       <div className="space-y-3 pb-2">
-        <p className="text-13 text-text-dim">Reach the team directly.</p>
+        <p className="text-13 text-text-dim">Where support will be handled.</p>
         <CopyRow text="support@perigeewallet.space" onCopy={onCopy} />
-        <p className="text-11 text-text-mute">Typical reply time is within one business day.</p>
+        {/* No promise of a reply: the mailbox opens with the public release, and
+            a build that invites mail it cannot answer is worse than one that says so. */}
+        <p className="text-11 text-text-mute">Staffed from the public release onward.</p>
       </div>
     )
   }
