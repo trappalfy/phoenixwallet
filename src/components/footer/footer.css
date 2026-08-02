@@ -1,20 +1,12 @@
 /* ============================================================================
-   Phoenix Wallet footer (FOOTER-SPEC). Tokens are scoped to .footer so the
-   "black glossy" palette never leaks into the rest of the (void-themed) site.
+   Perigee footer. Tokens are scoped to .footer so the "black glossy" palette
+   never leaks into the rest of the (bg-base-themed) site.
    ============================================================================ */
 .footer {
-  /* base — warm coal, not flat #000 (§3.1) */
+  /* base — near-black, not flat #000 */
   --bg: #050506;
-  --bg-elev: #0c0c0e;
 
-  --smoke-cool: #8a8f9c;
-  --smoke-ember: #ff6a2c;
-
-  --ember: #ff5a1f;
-  --ember-hot: #ffb27a;
-  --ember-deep: #a8330f;
-
-  --fg: #f2f0ee; /* warm white — never #FFF next to ember (§3.1) */
+  --fg: #f2f0ee; /* off-white — never #FFF next to the accent */
   --fg-muted: rgba(242, 240, 238, 0.55);
   --fg-dim: rgba(242, 240, 238, 0.38);
   --rule: rgba(242, 240, 238, 0.2);
@@ -98,9 +90,9 @@
   position: absolute;
   inset: -25%;
   background:
-    radial-gradient(38% 44% at 62% 38%, rgba(255, 106, 44, 0.1), transparent 70%),
-    radial-gradient(30% 38% at 28% 62%, rgba(138, 143, 156, 0.1), transparent 72%),
-    radial-gradient(46% 30% at 78% 74%, rgba(138, 143, 156, 0.07), transparent 75%);
+    radial-gradient(38% 44% at 62% 38%, rgba(139, 92, 246, 0.1), transparent 70%),
+    radial-gradient(30% 38% at 28% 62%, rgba(123, 133, 166, 0.1), transparent 72%),
+    radial-gradient(46% 30% at 78% 74%, rgba(123, 133, 166, 0.07), transparent 75%);
   filter: blur(60px);
   animation: footerDrift 44s var(--e-inout) infinite alternate;
 }
@@ -126,22 +118,22 @@
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
-/* vignette + vertical mask that eases the smoke into the bottom edge.
-   Top is intentionally NOT darkened — the section above hands off a warm glow
-   there, and a dark top edge would fight it (see .footer__dawn). */
+/* vignette + vertical mask that eases the dust field into the bottom edge.
+   Top is intentionally NOT darkened — the section above hands off a violet
+   glow there, and a dark top edge would fight it (see .footer__dawn). */
 .footer__vignette {
   position: absolute;
   inset: 0;
   pointer-events: none;
   background: radial-gradient(120% 90% at 50% 52%, transparent 44%, rgba(0, 0, 0, 0.5) 100%);
-  /* keep the vignette off the top edge so it can't darken the warm seam */
+  /* keep the vignette off the top edge so it can't darken the seam glow */
   -webkit-mask-image: linear-gradient(to bottom, transparent 0%, transparent 12%, #000 26%, #000 78%, rgba(0, 0, 0, 0.7) 100%);
   mask-image: linear-gradient(to bottom, transparent 0%, transparent 12%, #000 26%, #000 78%, rgba(0, 0, 0, 0.7) 100%);
 }
 
-/* ember "dawn": warm light rising from the footer's fire to meet the section
-   above, so the seam is a continuous warm gradient rather than a hard cut.
-   Kept subtle and confined to the top ~22% — the footer stays dark below. */
+/* accent "dawn": violet light rising from the footer to meet the section
+   above, so the seam is a continuous gradient rather than a hard cut. Kept
+   subtle and confined to the top ~22% — the footer stays dark below. */
 .footer__dawn {
   position: absolute;
   inset: 0;
@@ -150,10 +142,10 @@
      meet at the seam with equal value and ~0 slope: no step, no cusp, no line. */
   background: linear-gradient(
     to bottom,
-    rgba(255, 116, 48, 0.15) 0%,
-    rgba(255, 104, 44, 0.135) 3%,
-    rgba(198, 68, 28, 0.075) 9%,
-    rgba(122, 30, 0, 0.03) 15%,
+    rgba(139, 92, 246, 0.15) 0%,
+    rgba(139, 92, 246, 0.135) 3%,
+    rgba(124, 58, 237, 0.075) 9%,
+    rgba(46, 16, 101, 0.03) 15%,
     transparent 24%
   );
 }
@@ -167,7 +159,7 @@
 /* :focus-visible — never removed (§17) */
 .footer a:focus-visible,
 .footer button:focus-visible {
-  outline: 1px solid var(--ember);
+  outline: 1px solid var(--accent-500);
   outline-offset: 4px;
   border-radius: 2px;
 }
@@ -271,7 +263,7 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: var(--ember);
+  background: var(--accent-500);
   transform: scaleX(0);
   transform-origin: right center;
   transition: transform var(--d-mid) var(--e-out);
@@ -288,7 +280,7 @@
 }
 .cta:hover .cta__arrow {
   transform: translateY(-5px); /* points up: this returns you to the hero */
-  color: var(--ember);
+  color: var(--accent-500);
 }
 
 /* ---- meta: legal / enquiry / social (§12) ------------------------------- */
@@ -359,7 +351,7 @@
   right: 0;
   bottom: -3px;
   height: 1px;
-  background: var(--ember);
+  background: var(--accent-500);
   transform: scaleX(0);
   transform-origin: right center;
   transition: transform var(--d-fast) var(--e-out);
@@ -450,7 +442,7 @@
   top: 0;
   bottom: 0;
   display: block;
-  background: color-mix(in oklab, var(--wm-line) calc(100% - var(--heat, 0) * 100%), var(--ember-hot));
+  background: color-mix(in oklab, var(--wm-line) calc(100% - var(--heat, 0) * 100%), var(--accent-300));
   opacity: var(--o, 1);
 }
 @media (prefers-reduced-motion: reduce) {

@@ -1,9 +1,10 @@
-// Footer smoke — evaporating 3D-noise field with ember embers (FOOTER-SPEC §7).
+// Footer background — evaporating 3D-noise dust field with a sparse starfield.
 // Ported to GLSL ES 3.00 so it runs through the project's existing raw-WebGL2
 // runner (src/gl/webgl.ts, uniforms uTime/uRes/uMouse) — no OGL dependency.
 //
-// Character knobs are baked as consts (§7.5 "костёр"-ish defaults); to retune,
-// edit the const block. Keep heat ≤ 0.5 and intensity ≤ 0.16 (§21).
+// Character knobs are baked as consts; to retune, edit the const block. Keep
+// heat ≤ 0.5 and intensity ≤ 0.16 — this is background texture, not a light
+// source, and both guardrails came from a real overshoot during tuning.
 export const SMOKE_FRAG = `#version 300 es
 precision highp float;
 out vec4 fragColor;
@@ -13,8 +14,8 @@ uniform vec2  uRes;
 uniform vec2  uMouse;   // -1..1, lerped by the driver
 
 const vec3  BG        = vec3(0.01961, 0.01961, 0.02353); // #050506
-const vec3  SMOKE     = vec3(0.54118, 0.56078, 0.61176); // #8A8F9C
-const vec3  EMBER     = vec3(1.0,     0.41569, 0.17255); // #FF6A2C
+const vec3  DUST      = vec3(0.482353, 0.521569, 0.650980); // #7B85A6 — cool dust
+const vec3  KNOT      = vec3(0.654902, 0.545098, 0.980392); // #A78BFA — ionised knots
 const float SCALE     = 1.45;
 const float EVOLVE    = 0.055;
 const float RISE      = 0.024;
@@ -107,19 +108,26 @@ void main(){
   d = d * 0.5 + 0.5;
   d = smoothstep(LO, HI, d);
 
-  // big mask: smoke lives in the middle, corners stay black
+  // big mask: dust lives in the middle, corners stay black
   float mask = smoothstep(1.20, 0.10, length((p - vec2(0.06, -0.04)) * vec2(0.70, 1.0)));
   d *= mask;
 
-  vec3 col = mix(BG, SMOKE, d * INTENSITY);
+  vec3 col = mix(BG, DUST, d * INTENSITY);
 
-  // embers: only the top of the density, nothing below
+  // ionised knots: only the top of the density, nothing below
   float heat = pow(d, 4.0) * HEAT;
-  col = mix(col, EMBER, heat * 0.55);
+  col = mix(col, KNOT, heat * 0.55);
 
   // gloss: soft top-centre highlight, gives the black volume
   float gloss = smoothstep(0.9, -0.1, length((p - vec2(0.0, 0.45)) * vec2(0.55, 1.0)));
   col += vec3(0.016, 0.015, 0.017) * gloss;
+
+  // background starfield — sparse, gently twinkling, dimmed inside the dust
+  // itself so it reads as a layer behind it rather than scattered over it
+  vec2 starCell = floor(frag / 2.6);
+  float starHash = hash21(starCell + 91.7);
+  float star = step(0.9982, starHash) * (0.5 + 0.5 * sin(uTime * 0.9 + starHash * 62.83));
+  col += vec3(0.75, 0.8, 1.0) * star * (1.0 - d) * 0.85;
 
   // dithering — mandatory, else near-black bands
   col += (hash21(frag + fract(uTime)) - 0.5) / 255.0;
