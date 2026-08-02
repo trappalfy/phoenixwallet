@@ -10,7 +10,8 @@ export const FOOTER = {
 
   cta: { label: 'GET STARTED', href: '#top' }, // scrolls back to the hero
 
-  email: 'hello@phoenixwallet.com', // TODO: real address — domain unchanged, see rebrand notes
+  // TODO: the mailbox does not exist yet — create it before launch.
+  email: 'hello@perigeewallet.space',
 
   socials: [
     // order = column 1 top→bottom, then column 2
