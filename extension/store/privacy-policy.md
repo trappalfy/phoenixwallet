@@ -21,4 +21,4 @@ will be described plainly rather than folded into a version bump.
 
 Contact: phoenixwalletcontacts@gmail.com
 
-Live version of this policy: https://phoenixwallet.space/privacy.html
+Live version of this policy: https://perigeewallet.space/privacy.html

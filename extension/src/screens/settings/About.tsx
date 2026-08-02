@@ -17,7 +17,7 @@ type LinkId = 'website' | 'docs' | 'support' | 'privacy'
  * rather than an `href` to a domain that does not exist yet.
  */
 const LINKS: readonly { id: LinkId; label: string; detail: string }[] = [
-  { id: 'website', label: 'Website', detail: 'perigee.wallet' },
+  { id: 'website', label: 'Website', detail: 'perigeewallet.space' },
   { id: 'docs', label: 'Documentation', detail: 'Guides and walkthroughs' },
   { id: 'support', label: 'Support', detail: 'Get help from the team' },
   { id: 'privacy', label: 'Privacy policy', detail: 'How your data is handled' },
@@ -50,8 +50,7 @@ function LinkContent({ id, onCopy }: { id: LinkId; onCopy: (text: string) => voi
         <p className="text-13 text-text-dim">
           The Perigee Wallet website — news, guides and release notes.
         </p>
-        <CopyRow text="perigee.wallet" onCopy={onCopy} />
-        <p className="text-11 text-text-mute">Goes live with the public release.</p>
+        <CopyRow text="perigeewallet.space" onCopy={onCopy} />
       </div>
     )
   }
@@ -74,7 +73,7 @@ function LinkContent({ id, onCopy }: { id: LinkId; onCopy: (text: string) => voi
     return (
       <div className="space-y-3 pb-2">
         <p className="text-13 text-text-dim">Reach the team directly.</p>
-        <CopyRow text="support@perigee.wallet" onCopy={onCopy} />
+        <CopyRow text="support@perigeewallet.space" onCopy={onCopy} />
         <p className="text-11 text-text-mute">Typical reply time is within one business day.</p>
       </div>
     )
