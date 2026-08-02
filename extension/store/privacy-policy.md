@@ -1,8 +1,8 @@
-# Phoenix Wallet — Privacy Policy
+# Perigee Wallet — Privacy Policy
 
 _Last updated: 2026-07-26_
 
-Phoenix Wallet collects no data.
+Perigee Wallet collects no data.
 
 - The extension makes no network requests. There is no server behind it, no analytics, no crash
   reporting, and no third-party SDK of any kind.
@@ -15,7 +15,7 @@ Phoenix Wallet collects no data.
   transactions to protect or collect in the first place. All figures shown are sample data
   generated locally.
 
-If a future version of Phoenix Wallet adds functionality that involves handling real user data or
+If a future version of Perigee Wallet adds functionality that involves handling real user data or
 making network requests, this policy will be updated before that version ships, and the change
 will be described plainly rather than folded into a version bump.
 

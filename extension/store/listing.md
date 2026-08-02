@@ -16,7 +16,7 @@ the truth.
 
 ## Name
 
-Phoenix Wallet
+Perigee Wallet
 
 ## Summary (short description)
 
@@ -24,7 +24,7 @@ A self-custody wallet interface for Ethereum, Solana, Bitcoin and five more netw
 
 ## Description
 
-Phoenix Wallet gives you full control of your keys across eight networks — Ethereum, Solana,
+Perigee Wallet gives you full control of your keys across eight networks — Ethereum, Solana,
 Bitcoin, Base, Arbitrum, Optimism, Polygon and Sui. Send, receive, swap and buy crypto from one
 clean interface.
 

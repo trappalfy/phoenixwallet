@@ -1,4 +1,4 @@
-# Phoenix Wallet — extension
+# Perigee Wallet — extension
 
 A Manifest V3 Chrome extension: a **complete, clickable prototype** of a self-custody wallet for
 eight networks (Ethereum, Solana, Bitcoin, Base, Arbitrum, Optimism, Polygon, Sui). Every screen,

@@ -43,7 +43,7 @@ export default function SetPassword() {
       <BackBar title="Create a password" />
       <div className="scroll-region flex-1 px-gutter pb-4">
         <p className="pb-4 text-13 text-text-dim">
-          This password unlocks Phoenix on this device. It does not protect your funds — your
+          This password unlocks Perigee on this device. It does not protect your funds — your
           recovery phrase does.
         </p>
 
@@ -56,14 +56,14 @@ export default function SetPassword() {
             onChange={(e) => setPassword(e.target.value)}
           />
 
-          {/* Strength rail — ember gradient as a fill, one of the four places §5.2 allows it. */}
+          {/* Strength rail — accent gradient as a fill, one of the four places §5.2 allows it. */}
           <div>
             <div className="flex gap-1">
               {[0, 1, 2, 3].map((i) => (
                 <span
                   key={i}
                   className={`h-1 flex-1 rounded-pill transition-colors duration-state ease-out ${
-                    i < strength ? 'bg-grad-ember' : 'bg-surface-3'
+                    i < strength ? 'bg-grad-accent' : 'bg-surface-3'
                   }`}
                 />
               ))}
@@ -97,10 +97,10 @@ export default function SetPassword() {
               type="checkbox"
               checked={acknowledged}
               onChange={(e) => setAcknowledged(e.target.checked)}
-              className="mt-0.5 h-4 w-4 shrink-0 accent-ember"
+              className="mt-0.5 h-4 w-4 shrink-0 accent-accent"
             />
             <span className="text-12 text-text-dim">
-              I understand that Phoenix cannot reset this password. If I forget it, the only way back
+              I understand that Perigee cannot reset this password. If I forget it, the only way back
               in is my recovery phrase.
             </span>
           </label>

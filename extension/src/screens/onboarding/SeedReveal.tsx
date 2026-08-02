@@ -43,7 +43,7 @@ export default function SeedReveal() {
           <div className="text-12 text-text-dim">
             <p className="text-text">Anyone with these twelve words takes the funds.</p>
             <p className="mt-1">
-              Phoenix cannot restore them for you. Write them down offline and keep them somewhere
+              Perigee cannot restore them for you. Write them down offline and keep them somewhere
               only you can reach.
             </p>
           </div>

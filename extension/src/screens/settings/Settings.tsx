@@ -98,7 +98,7 @@ export default function Settings() {
         <div className="flex flex-col items-center gap-1.5 pb-2 pt-6">
           <PhoenixMark size={22} className="text-text-mute" />
           <p className="font-mono text-11 uppercase tracking-label text-text-mute">
-            {`Phoenix · v${VERSION}`}
+            {`Perigee · v${VERSION}`}
           </p>
         </div>
       </div>

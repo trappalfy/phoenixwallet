@@ -39,7 +39,7 @@ export default function Unlock() {
       {/* The second and last place the ignite fires (§5.5): the mark draws out
           of its own centre while a heat rail crosses the top edge. */}
       <div className="absolute inset-x-0 top-0 h-0.5 overflow-hidden">
-        <div data-ignite-rail className="h-full w-1/2 bg-grad-ember" />
+        <div data-ignite-rail className="h-full w-1/2 bg-grad-accent" />
       </div>
 
       <div className="flex flex-1 flex-col items-center justify-center">
@@ -79,7 +79,7 @@ export default function Unlock() {
         {/* Counter appears only after two failures, so one slip is not scolded. */}
         {attempts >= 2 && (
           <p className="text-12 text-text-mute tabular-nums">
-            {attempts} failed attempts. Phoenix does not lock you out — but it cannot reset this
+            {attempts} failed attempts. Perigee does not lock you out — but it cannot reset this
             password either.
           </p>
         )}
@@ -99,7 +99,7 @@ export default function Unlock() {
       <Sheet open={helpOpen} onClose={() => setHelpOpen(false)} title="Forgot password?">
         <div className="space-y-3 pb-2 text-13 text-text-dim">
           <p>
-            Phoenix cannot reset your password. It never leaves this device, so there is nothing for
+            Perigee cannot reset your password. It never leaves this device, so there is nothing for
             us to look up and nobody to ask.
           </p>
           <p>

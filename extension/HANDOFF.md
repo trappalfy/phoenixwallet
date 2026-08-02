@@ -1,6 +1,6 @@
 # Handoff — every `TODO(backend)`
 
-Phoenix Wallet's UI is complete; everything it currently shows comes from `src/mock/`, a
+Perigee Wallet's UI is complete; everything it currently shows comes from `src/mock/`, a
 synchronous, in-memory layer with no network calls (§2 of `docs/phoenix-wallet-PROMPT.md`). A backend
 team replaces that layer — not the UI — by implementing the functions below to the same
 signatures. The types referenced throughout (`Token`, `Nft`, `Activity`, `Account`, ...) are
@@ -88,7 +88,7 @@ implementation returns.
 - **`src/screens/swap/Swap.tsx:16`** (`NETWORK_FEE`) and the rate shown (`from.price / to.price`)
   — plain price-ratio math, no slippage model, no real route. A real implementation calls a quote
   endpoint for the rate, minimum received and fee.
-- **`src/components/wallet/SwapRoute.tsx:5`** — draws a fixed two-hop path (`asset → Phoenix →
+- **`src/components/wallet/SwapRoute.tsx:5`** — draws a fixed two-hop path (`asset → Perigee →
   asset`); there is no router behind it. A real implementation draws the real route from the
   quote.
 - **`src/mock/api.ts:130` `swap(draft)`** — same mutate-and-fake-hash pattern as `sendTransaction`.

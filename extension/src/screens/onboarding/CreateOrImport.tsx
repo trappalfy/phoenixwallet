@@ -14,7 +14,7 @@ const OPTIONS: readonly {
     Icon: Plus,
     title: 'Create a new wallet',
     // Plain language, no implementation words (§6): "recovery phrase", never "mnemonic seed".
-    body: 'Phoenix generates a new recovery phrase of twelve words. Write it down — it is the only way back into this wallet.',
+    body: 'Perigee generates a new recovery phrase of twelve words. Write it down — it is the only way back into this wallet.',
   },
   {
     route: { name: 'importSeed' },
@@ -39,7 +39,7 @@ export default function CreateOrImport() {
               onClick={() => nav.push(route)}
               className="flex w-full gap-3 rounded-card border border-hairline bg-surface-1 p-4 text-left transition-colors duration-state ease-out hover:bg-surface-2"
             >
-              <span className="mt-0.5 shrink-0 text-ember">
+              <span className="mt-0.5 shrink-0 text-accent">
                 <Icon size={20} />
               </span>
               <span className="min-w-0 flex-1">

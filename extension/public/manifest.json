@@ -1,11 +1,11 @@
 {
   "manifest_version": 3,
-  "name": "Phoenix Wallet",
+  "name": "Perigee Wallet",
   "version": "0.1.0",
   "description": "Self-custody wallet for Ethereum, Solana, Bitcoin and five more networks. Your keys never leave your device.",
   "action": {
     "default_popup": "index.html",
-    "default_title": "Phoenix Wallet",
+    "default_title": "Perigee Wallet",
     "default_icon": {
       "16": "icons/16.png",
       "32": "icons/32.png",

@@ -145,7 +145,7 @@ export function swap(draft: SwapDraft): Activity {
     symbol: draft.fromSymbol,
     toAmount: draft.toAmount,
     toSymbol: draft.toSymbol,
-    counterparty: 'Phoenix Router',
+    counterparty: 'Perigee Router',
     hash: mockHash(draft.chainId),
     fee: draft.fee,
     feeSymbol: nativeSymbol(draft.chainId),

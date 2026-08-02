@@ -151,7 +151,7 @@ export function newAddresses(): Account['addresses'] {
  * and `const pick` is not hoisted the way a function declaration is.
  *
  * The three seeded accounts are a *funded* wallet, belonging to someone who has
- * been using Phoenix for months. Handing them to a user who has just written
+ * been using Perigee for months. Handing them to a user who has just written
  * down a recovery phrase would claim they already own $15,000 and a swap
  * history, which is the one lie a wallet cannot tell. Those accounts come back
  * by restoring the sample phrase — exactly how a real wallet returns them.

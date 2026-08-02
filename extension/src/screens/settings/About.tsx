@@ -17,7 +17,7 @@ type LinkId = 'website' | 'docs' | 'support' | 'privacy'
  * rather than an `href` to a domain that does not exist yet.
  */
 const LINKS: readonly { id: LinkId; label: string; detail: string }[] = [
-  { id: 'website', label: 'Website', detail: 'phoenix.wallet' },
+  { id: 'website', label: 'Website', detail: 'perigee.wallet' },
   { id: 'docs', label: 'Documentation', detail: 'Guides and walkthroughs' },
   { id: 'support', label: 'Support', detail: 'Get help from the team' },
   { id: 'privacy', label: 'Privacy policy', detail: 'How your data is handled' },
@@ -48,9 +48,9 @@ function LinkContent({ id, onCopy }: { id: LinkId; onCopy: (text: string) => voi
     return (
       <div className="space-y-3 pb-2">
         <p className="text-13 text-text-dim">
-          The Phoenix Wallet website — news, guides and release notes.
+          The Perigee Wallet website — news, guides and release notes.
         </p>
-        <CopyRow text="phoenix.wallet" onCopy={onCopy} />
+        <CopyRow text="perigee.wallet" onCopy={onCopy} />
         <p className="text-11 text-text-mute">Goes live with the public release.</p>
       </div>
     )
@@ -74,7 +74,7 @@ function LinkContent({ id, onCopy }: { id: LinkId; onCopy: (text: string) => voi
     return (
       <div className="space-y-3 pb-2">
         <p className="text-13 text-text-dim">Reach the team directly.</p>
-        <CopyRow text="support@phoenix.wallet" onCopy={onCopy} />
+        <CopyRow text="support@perigee.wallet" onCopy={onCopy} />
         <p className="text-11 text-text-mute">Typical reply time is within one business day.</p>
       </div>
     )
@@ -82,7 +82,7 @@ function LinkContent({ id, onCopy }: { id: LinkId; onCopy: (text: string) => voi
   return (
     <div className="space-y-3 pb-2 text-13 leading-relaxed text-text-dim">
       <p>
-        Phoenix Wallet is self-custodial. This build makes no network requests and collects no data —
+        Perigee Wallet is self-custodial. This build makes no network requests and collects no data —
         nothing about your activity, balances or accounts ever leaves this device.
       </p>
       <p>
@@ -119,11 +119,11 @@ export default function About() {
       <div className="scroll-region flex-1 px-gutter pb-5">
         <div className="flex flex-col items-center pt-4 text-center">
           <PhoenixMark size={48} active className="text-text" />
-          <h1 className="pt-3 font-display text-22 font-bold tracking-display text-text">Phoenix</h1>
+          <h1 className="pt-3 font-display text-22 font-bold tracking-display text-text">Perigee</h1>
           <p className="pt-0.5 font-mono text-12 tabular-nums text-text-mute">Version {VERSION}</p>
           {IS_DEMO && (
             <div className="pt-2">
-              <Pill tone="ember">Demo build</Pill>
+              <Pill tone="accent">Demo build</Pill>
             </div>
           )}
         </div>

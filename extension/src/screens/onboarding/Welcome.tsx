@@ -10,7 +10,7 @@ export default function Welcome() {
       <div className="flex flex-1 flex-col items-start justify-center">
         <PhoenixMark size={56} active />
         <h1 className="mt-6 font-display text-34 font-bold tracking-figure text-text">
-          Phoenix
+          Perigee
         </h1>
         {/* One line, product-side and specific — not marketing copy centred in a product UI (§5.6). */}
         <p className="mt-2 max-w-[30ch] text-15 text-text-dim">
