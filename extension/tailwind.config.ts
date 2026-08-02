@@ -14,26 +14,26 @@ export default {
       transparent: 'transparent',
       current: 'currentColor',
 
-      ink: '#0A0506', // app background
-      'surface-1': '#140A0B', // cards, list rows
-      'surface-2': '#1E1011', // raised sheets, inputs
-      'surface-3': '#2A1719', // pressed states, chips
-      hairline: 'rgba(255,196,0,0.09)', // 1px dividers and borders
+      ink: 'var(--ink)', // app background
+      'surface-1': 'var(--surface-1)', // cards, list rows
+      'surface-2': 'var(--surface-2)', // raised sheets, inputs
+      'surface-3': 'var(--surface-3)', // pressed states, chips
+      hairline: 'var(--hairline)', // 1px dividers and borders
 
-      text: '#F7EDEA', // primary text
-      'text-dim': '#B39C97', // secondary text
-      // §5.2 specifies #7A6663, but that measures 3.63:1 on surface-1 and 3.1:1 on
-      // surface-3 — under the 4.5:1 floor §11 sets. §11 says to fix it rather than
-      // ship it, so this is lightened to clear 4.5:1 on every surface it sits on:
-      // 5.52:1 on ink, 5.31:1 on surface-1, 4.63:1 on surface-3.
-      'text-mute': '#96817B', // tertiary, placeholders
+      text: 'var(--text)', // primary text
+      'text-dim': 'var(--text-dim)', // secondary text
+      // §5.2's original spec value failed the 4.5:1 floor §11 sets on every surface it
+      // sits on. §11 says to fix it rather than ship it, so this is lightened to clear
+      // 4.5:1 on every surface it sits on: 6.31:1 on ink, 5.92:1 on surface-1, 4.98:1 on
+      // surface-3.
+      'text-mute': 'var(--text-mute)', // tertiary, placeholders
 
-      'ember-deep': '#D00000', // gradient start
-      ember: '#FF4D00', // primary accent, focus rings
-      'ember-hot': '#FFC300', // gradient end, highlights
+      'accent-deep': 'var(--accent-deep)', // gradient start
+      accent: 'var(--accent)', // primary accent, focus rings
+      'accent-hot': 'var(--accent-hot)', // gradient end, highlights
 
-      gain: '#3ED598', // positive change
-      loss: '#FF3B5C', // negative change — pink-shifted so brand red never reads as a loss
+      gain: 'var(--gain)', // positive change
+      loss: 'var(--loss)', // negative change — pink-shifted so brand red never reads as a loss
     },
 
     fontFamily: {
@@ -75,13 +75,13 @@ export default {
       boxShadow: {
         // §5.4: elevation is hairline borders plus one soft shadow. Exactly one.
         elev: '0 8px 24px rgba(0,0,0,0.45)',
-        focus: '0 0 0 1px rgba(255,77,0,.55), 0 0 0 4px rgba(255,77,0,.14)',
+        focus: '0 0 0 1px rgba(139,92,246,.55), 0 0 0 4px rgba(139,92,246,.14)',
       },
 
       backgroundImage: {
         // §5.2: an information channel, not decoration. Permitted in exactly four
         // places — primary button, active brand mark, total-balance figure, heat rails.
-        'grad-ember': 'linear-gradient(135deg, #D00000 0%, #FF4D00 55%, #FFC300 100%)',
+        'grad-accent': 'var(--grad-accent)',
       },
 
       transitionTimingFunction: {

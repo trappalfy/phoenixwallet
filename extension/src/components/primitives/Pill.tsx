@@ -1,13 +1,13 @@
 import type { ReactNode } from 'react'
 
-export type PillTone = 'neutral' | 'gain' | 'loss' | 'ember' | 'pending'
+export type PillTone = 'neutral' | 'gain' | 'loss' | 'accent' | 'pending'
 
 const TONES: Record<PillTone, string> = {
   neutral: 'border-hairline bg-surface-2 text-text-dim',
   gain: 'border-gain/25 bg-gain/10 text-gain',
   loss: 'border-loss/25 bg-loss/10 text-loss',
-  ember: 'border-ember/30 bg-ember/10 text-ember',
-  pending: 'border-ember-hot/25 bg-ember-hot/10 text-ember-hot',
+  accent: 'border-accent/30 bg-accent/10 text-accent',
+  pending: 'border-accent-hot/25 bg-accent-hot/10 text-accent-hot',
 }
 
 type Props = {
