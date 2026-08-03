@@ -14,7 +14,8 @@ type LinkId = 'website' | 'docs' | 'support' | 'privacy'
 /**
  * §2.1 forbids any real URL in the source, and §13 greps for one — so a tap
  * opens an in-app sheet with the same content a real link would lead to,
- * rather than an `href` to a domain that does not exist yet.
+ * rather than an `href`. perigeewallet.space resolves now, but that was never
+ * the reason: the rule is that the popup does not navigate out of itself.
  */
 const LINKS: readonly { id: LinkId; label: string; detail: string }[] = [
   { id: 'website', label: 'Website', detail: 'perigeewallet.space' },
@@ -72,11 +73,13 @@ function LinkContent({ id, onCopy }: { id: LinkId; onCopy: (text: string) => voi
   if (id === 'support') {
     return (
       <div className="space-y-3 pb-2">
-        <p className="text-13 text-text-dim">Where support will be handled.</p>
+        <p className="text-13 text-text-dim">Where support is handled.</p>
         <CopyRow text="support@perigeewallet.space" onCopy={onCopy} />
-        {/* No promise of a reply: the mailbox opens with the public release, and
-            a build that invites mail it cannot answer is worse than one that says so. */}
-        <p className="text-11 text-text-mute">Staffed from the public release onward.</p>
+        {/* The mailbox accepts mail now, so the old "opens with the public
+            release" line was simply false. Still no reply-time commitment:
+            nobody is staffed against one, and a promise this build cannot keep
+            is the part actually worth avoiding. */}
+        <p className="text-11 text-text-mute">The mailbox is open. No reply time promised.</p>
       </div>
     )
   }

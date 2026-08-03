@@ -10,7 +10,6 @@ export const FOOTER = {
 
   cta: { label: 'GET STARTED', href: '#top' }, // scrolls back to the hero
 
-  // TODO: the mailbox does not exist yet — create it before launch.
   email: 'hello@perigeewallet.space',
 
   socials: [
