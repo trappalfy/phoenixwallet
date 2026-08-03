@@ -6,10 +6,30 @@
 //   node scripts/review.mjs shots  http://localhost:4180 out.png [frames]
 //   node scripts/review.mjs walk   http://localhost:4180 out.png
 //
+// STALE — `audit` works; the data-dependent modes do not. They were written
+// against a build that could reach a funded wallet by importing the sample
+// recovery phrase, and that route is gone: the seed-import screen and the
+// private-key import in AddAccount were both removed, so nothing in the
+// shipped UI asks for a secret and nothing reaches ACCOUNTS. `reachHome`
+// below still clicks "I already have a wallet" and times out, taking the
+// seven modes that call it with it.
+//
+// Repairing them is not a navigation fix. A created wallet is empty by
+// design, so the assertions those modes make — balances, collectibles,
+// activity history — have no data behind them any more and need rewriting
+// against an empty wallet, or the fixtures need a test-only entry point that
+// the shipped build does not expose.
+//
 const { chromium } = await import('playwright')
 const sharp = (await import('sharp')).default
 const { execSync } = await import('node:child_process')
-const SRC = new URL('../src/', import.meta.url).pathname
+const { fileURLToPath } = await import('node:url')
+// `.pathname` yields "/C:/Users/..." on Windows, which grep cannot open — both
+// source checks below then threw, were swallowed by their catch, and printed
+// PASS having never run. fileURLToPath gives a real path; the separators are
+// normalised so the `p.replace(SRC, '')` below produces forward-slash keys to
+// match GRADIENT_ALLOWED on either platform.
+const SRC = fileURLToPath(new URL('../src/', import.meta.url)).replace(/\\/g, '/')
 
 const [mode, url, out, frames] = process.argv.slice(2)
 if (!mode || !url) {
@@ -128,7 +148,7 @@ if (mode === 'audit') {
     forbiddenOk ? 'PASS — none found' : 'FAIL\n  ' + forbidden.trim().split('\n').join('\n  '),
   )
 
-  // §5.2 — the ember gradient appears in exactly four places: the primary
+  // §5.2 — the accent gradient appears in exactly four places: the primary
   // button, the brand mark's active state, the balance figure, and the
   // progress/heat rails (ignite, tx-pending, hold-to-confirm, password
   // strength — one family under §10's "rail" heading). KitchenSink.tsx is the
@@ -146,7 +166,10 @@ if (mode === 'audit') {
   ])
   let gradientHits = ''
   try {
-    gradientHits = execSync(`grep -rl "bg-grad-ember\\|bg-clip-text" "${SRC}"`, { encoding: 'utf8' })
+    // The token was `grad-ember` until the Perigee rebrand. Grepping the old
+    // name matched nothing and passed vacuously, which is the worst way for a
+    // gate to fail: silently, while still printing PASS.
+    gradientHits = execSync(`grep -rl "bg-grad-accent\\|bg-clip-text" "${SRC}"`, { encoding: 'utf8' })
   } catch {
     /* grep exits 1 on no match */
   }
@@ -157,7 +180,7 @@ if (mode === 'audit') {
     .map((p) => p.replace(SRC, ''))
     .filter((p) => p !== 'screens/KitchenSink.tsx' && !GRADIENT_ALLOWED.has(p))
   console.log(
-    'ember gradient, 4 places only  :',
+    'accent gradient, 4 places only :',
     gradientOffenders.length ? 'FAIL — unexpected in ' + gradientOffenders.join(', ') : 'PASS',
   )
 
