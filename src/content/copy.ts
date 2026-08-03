@@ -31,7 +31,7 @@ export const product = {
   // artifact goes to the Chrome Web Store and to anyone downloading it here.
   downloadUrl: '/downloads/perigee-wallet-0.1.0.zip',
   downloadVersion: '0.1.0',
-  downloadSha256: '8090007a25c6287826c5e77e15cf5411bbc2c740c6dc6bd64b74f4f9937c0d4f',
+  downloadSha256: '7d3954b9abf5c38680242ca58bef7d998a1495947aa6020f703aae89bb905b2f',
   unsupportedLabel: 'Chrome & Edge only',
 } as const
 
