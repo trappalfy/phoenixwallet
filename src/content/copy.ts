@@ -27,9 +27,11 @@ export const product = {
    * See extension/store/README.md step 7.
    */
   chromeStoreUrl: null as string | null,
-  downloadUrl: '/downloads/phoenix-wallet-0.1.0.zip',
+  // Byte-identical to extension/store/build/perigee-wallet-0.1.0.zip — the same
+  // artifact goes to the Chrome Web Store and to anyone downloading it here.
+  downloadUrl: '/downloads/perigee-wallet-0.1.0.zip',
   downloadVersion: '0.1.0',
-  downloadSha256: '213ac8f0a7e6674c241f0ff6f82d4f97f274c547300b7f5bda7bdb48a2018d4f',
+  downloadSha256: '8090007a25c6287826c5e77e15cf5411bbc2c740c6dc6bd64b74f4f9937c0d4f',
   unsupportedLabel: 'Chrome & Edge only',
 } as const
 
