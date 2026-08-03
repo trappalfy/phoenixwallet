@@ -14,6 +14,19 @@ import { loadTrimmedMark, MARK_PNG } from './mark-source.mjs'
 
 const here = dirname(fileURLToPath(import.meta.url))
 const OUT = resolve(here, '../public/icons')
+const STORE_OUT = resolve(here, '../store')
+
+// The Chrome Web Store listing icon is framed differently from the toolbar set.
+// Google's image guidelines put the artwork in a 96×96 box centred on a 128×128
+// canvas, leaving 16px transparent on every side, and ask for no edge of our own
+// on the outer square: the store draws its own rounding and shadow, so a plate
+// running to the canvas edge gets treated twice and reads pinched next to icons
+// that followed the rule.
+//
+// It is submission material, not part of the bundle, so it goes to store/ and
+// never to public/icons — Vite copies that directory wholesale into dist/, and
+// a second 128px file would ride along in the zip unreferenced by the manifest.
+const STORE_ICON = { canvas: 128, plate: 96, ss: 8, inset: 0.86, radius: 0.2 }
 
 // 180 is the apple-touch-icon the landing site copies out of here (there is
 // no separate generator for it) — see the npm run icons step in README.
@@ -66,6 +79,48 @@ function plate(px, radiusFraction) {
   )
 }
 
+/** The listing icon: the same plate and mark, shrunk to 96 and centred on a
+ *  transparent 128 canvas. Built from the same source as the toolbar set so the
+ *  store and the browser cannot drift apart. */
+async function storeIcon(trimmed, width, height) {
+  const { canvas, plate: plateSize, ss, inset, radius } = STORE_ICON
+  const box = Math.round(plateSize * inset * ss)
+  if (box > Math.max(width, height)) {
+    throw new Error(`refusing to upscale the mark (${width}×${height}) past ${box}px`)
+  }
+
+  const mark = await sharp(trimmed)
+    .resize(box, box, { fit: 'contain', background: { r: 0, g: 0, b: 0, alpha: 0 } })
+    .toBuffer()
+
+  const large = await sharp(plate(plateSize * ss, radius))
+    .composite([{ input: mark, gravity: 'center' }])
+    .png()
+    .toBuffer()
+
+  const small = await sharp(large)
+    .resize(plateSize, plateSize, { kernel: 'lanczos3' })
+    .png()
+    .toBuffer()
+
+  const pad = (canvas - plateSize) / 2
+  await sharp({
+    create: {
+      width: canvas,
+      height: canvas,
+      channels: 4,
+      background: { r: 0, g: 0, b: 0, alpha: 0 },
+    },
+  })
+    .composite([{ input: small, top: pad, left: pad }])
+    .png({ compressionLevel: 9 })
+    .toFile(resolve(STORE_OUT, 'store-icon-128.png'))
+
+  console.log(
+    `store/store-icon-128.png  ${canvas}×${canvas}  plate ${plateSize}px + ${pad}px transparent padding`,
+  )
+}
+
 async function main() {
   await mkdir(OUT, { recursive: true })
 
@@ -98,6 +153,8 @@ async function main() {
         (SHARPEN[size] ? ', sharpened' : ''),
     )
   }
+
+  await storeIcon(trimmed, width, height)
 }
 
 main().catch((err) => {
