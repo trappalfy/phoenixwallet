@@ -9,9 +9,9 @@ type Props = {
   fallbackClassName?: string
 }
 
-// Resting frame: a horizontal molten band on --void. Matches the shader at rest.
+// Resting frame: a horizontal nebula band on --bg-base. Matches the shader at rest.
 const FALLBACK_BG =
-  'radial-gradient(150% 20% at 50% 50%, rgba(255,233,196,0.16), rgba(255,90,31,0.16) 28%, rgba(122,30,0,0.12) 52%, transparent 72%), #07060a'
+  'radial-gradient(150% 20% at 50% 50%, rgba(196,181,253,0.16), rgba(139,92,246,0.16) 28%, rgba(46,16,101,0.12) 52%, transparent 72%), #0a0818'
 
 export default function Shader({ scrollRef }: Props) {
   const canvasRef = useRef<HTMLCanvasElement>(null)

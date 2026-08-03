@@ -1,4 +1,4 @@
-// Molten-filament fragment shader (brief §6). GLSL ES 3.00 for WebGL2.
+// Nebula-filament fragment shader. GLSL ES 3.00 for WebGL2.
 // OCTAVES is injected per device (4 desktop / 3 mobile) — see Shader.tsx.
 export function buildFrag(octaves: number): string {
   return `#version 300 es
@@ -41,17 +41,18 @@ float fbm(vec2 p){
   return v;
 }
 
-// ember ramp, straight from the tokens
-const vec3 CORE  = vec3(1.0,   0.914, 0.769); // #FFE9C4
-const vec3 EMBER = vec3(1.0,   0.353, 0.122); // #FF5A1F
-const vec3 COAL  = vec3(0.478, 0.118, 0.0);   // #7A1E00
+// nebula ramp, straight from the tokens
+const vec3 CORE = vec3(0.768627, 0.709804, 0.992157); // #C4B5FD
+const vec3 HOT  = vec3(0.133333, 0.827451, 0.933333); // #22D3EE — ionised peaks, used sparingly
+const vec3 BODY = vec3(0.545098, 0.360784, 0.964706); // #8B5CF6
+const vec3 HALO = vec3(0.166274, 0.192941, 0.606274); // accent-800 → blue-600, the cool outer fringe
 
 void main(){
   vec2 p = (gl_FragCoord.xy - 0.5 * uRes) / uRes.y;
 
   float t = uTime * 0.08;
 
-  // domain-warped centreline
+  // domain-warped centreline — the nebula's spine
   float warp  = fbm(vec2(p.x * 1.6 + t, t * 0.7)) - 0.5;
   float thick = 0.02 + 0.05 * fbm(vec2(p.x * 2.5 - t * 1.3, 4.0));
   float d = abs(p.y - warp * 0.28 - uMouse.y * 0.02);
@@ -60,17 +61,33 @@ void main(){
   float glow = smoothstep(thick * 6.0,  0.0, d);
   float halo = smoothstep(thick * 18.0, 0.0, d);
 
-  // heat varies along the length so the core breaks into hot / cooled stretches
+  // emission density varies along the length: the strand breaks into bright
+  // ionised knots and dim stretches, same shape it always had — only the two
+  // ends of the ramp moved, from ember/white-hot to violet/cyan.
   float heat = fbm(vec2(p.x * 4.0 - t * 1.8, 3.0));
-  vec3 coreCol = mix(EMBER, CORE, smoothstep(0.40, 0.85, heat));
+  vec3 coreCol = mix(CORE, HOT, smoothstep(0.55, 0.92, heat));
 
   vec3 col = coreCol * core
-           + EMBER * pow(glow, 1.6) * 0.9
-           + COAL  * pow(halo, 2.2) * 0.55;
+           + BODY * pow(glow, 1.6) * 0.9
+           + HALO * pow(halo, 2.2) * 0.55;
 
-  // molten, not neon: strong bright/dim stretches + fine shimmer
+  // dust lanes: a second, coarser warp cutting across the strand, darkening
+  // it in streaks so it reads as a nebula interrupted by dust, not a neon
+  // tube with an even glow.
+  float dust = fbm(vec2(p.x * 3.2 + t * 0.4, p.y * 5.5 - t * 0.5));
+  col *= 1.0 - 0.5 * smoothstep(0.52, 0.75, dust) * (glow * 0.6 + halo * 0.4);
+
+  // density still drives brightness — strong bright/dim stretches + fine shimmer
   col *= 0.40 + 1.0 * heat;
   col *= 0.85 + 0.25 * valueNoise(vec2(p.x * 9.0 + t * 2.4, 7.0));
+
+  // sparse background stars: a screen-space hash grid, gently twinkling,
+  // dimmed inside the strand's own glow so they read as a field behind it
+  // rather than static laid over it.
+  vec2 starCell = floor(gl_FragCoord.xy / 3.0);
+  float starHash = hash21(starCell);
+  float star = step(0.9975, starHash) * (0.5 + 0.5 * sin(uTime * 1.3 + starHash * 62.83));
+  col += vec3(0.8, 0.85, 1.0) * star * (1.0 - clamp(glow + halo, 0.0, 1.0)) * 0.9;
 
   col *= uIntro;
   col *= 1.0 - uScroll * 0.65;

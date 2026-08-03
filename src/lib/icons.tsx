@@ -2,7 +2,7 @@ import type { ReactNode, SVGProps } from 'react'
 
 type IconProps = SVGProps<SVGSVGElement>
 
-const VOID = '#07060A' // for negative-space cuts; these marks only sit on --void
+const VOID = '#0A0818' // for negative-space cuts; these marks only sit on --bg-base
 
 // Diagonal up-right arrow (composed into the pill's circular badge in Nav).
 export function Arrow(props: IconProps) {

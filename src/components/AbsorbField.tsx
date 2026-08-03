@@ -56,7 +56,7 @@ export default function AbsorbField({
       canvas.style.height = H + 'px'
       // canvas.width reset wipes context state — restore transform + fill here
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0)
-      ctx.fillStyle = 'rgba(255,169,61,0.95)'
+      ctx.fillStyle = 'rgba(167,139,250,0.95)'
       // Centre the hole on the icon's *actual* position, not the box centre —
       // the section's top padding differs by breakpoint, so a fixed centre drifts
       // off the icon. Measured once here (and on resize). Drives the CSS glow too.
@@ -166,7 +166,7 @@ export default function AbsorbField({
           opacity: g,
           filter: 'blur(46px)',
           background:
-            'radial-gradient(ellipse 40% 60% at var(--hx) var(--hy), rgba(255,90,31,0.52), rgba(122,30,0,0.22) 50%, transparent 76%)',
+            'radial-gradient(ellipse 40% 60% at var(--hx) var(--hy), rgba(139,92,246,0.52), rgba(46,16,101,0.22) 50%, transparent 76%)',
         }}
       />
       {/* particles streaming into the hole */}
@@ -181,7 +181,7 @@ export default function AbsorbField({
           opacity: 0.92 * g,
           filter: 'blur(24px)',
           background:
-            'radial-gradient(ellipse 80px 44% at var(--hx) var(--hy), rgba(255,169,61,0.6), rgba(255,90,31,0.28) 45%, transparent 74%)',
+            'radial-gradient(ellipse 80px 44% at var(--hx) var(--hy), rgba(167,139,250,0.6), rgba(139,92,246,0.28) 45%, transparent 74%)',
         }}
       />
     </div>

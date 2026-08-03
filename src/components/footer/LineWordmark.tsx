@@ -6,7 +6,7 @@ import { FOOTER } from './footer.config'
 
 const ROWS = 24 // same on every breakpoint; only the pitch changes (§13.4)
 
-// "PHOENIX" rendered as horizontal scanlines (FOOTER-SPEC §13). Signature piece.
+// "PERIGEE" rendered as horizontal scanlines (FOOTER-SPEC §13). Signature piece.
 export default function LineWordmark() {
   const hostRef = useRef<HTMLDivElement>(null)
   const rowRefs = useRef<(HTMLDivElement | null)[]>([])
@@ -92,7 +92,7 @@ export default function LineWordmark() {
           </div>
         ))}
       </div>
-      <p className="sr-only">Phoenix Wallet</p>
+      <p className="sr-only">Perigee Wallet</p>
     </>
   )
 }

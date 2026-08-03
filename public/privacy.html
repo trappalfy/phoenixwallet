@@ -3,9 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Privacy Policy — Phoenix Wallet</title>
-    <meta name="description" content="Privacy policy for the Phoenix Wallet website and browser extension." />
-    <meta name="theme-color" content="#07060A" />
+    <title>Privacy Policy — Perigee Wallet</title>
+    <meta name="description" content="Privacy policy for the Perigee Wallet website and browser extension." />
+    <meta name="theme-color" content="#0A0818" />
     <link rel="preload" href="/fonts/CabinetGrotesk-Bold.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="/fonts/Switzer-Regular.woff2" as="font" type="font/woff2" crossorigin />
     <style>
@@ -38,15 +38,17 @@
         font-display: swap;
       }
 
+      /* Standalone page, outside the Vite build — this is a second copy of the
+         tokens in src/theme/colors.ts / src/index.css, kept in sync by hand. */
       :root {
-        --void: #07060a;
-        --soot: #0f0d12;
-        --ash: #1a171d;
-        --flare: #ffa53d;
-        --ember: #ff5a1f;
-        --bone: #f2eee8;
-        --smoke: #9a928c;
-        --hairline: rgba(242, 238, 232, 0.08);
+        --bg-base: #0a0818;
+        --bg-surface: #121029;
+        --bg-elevated: #1a1738;
+        --accent-400: #a78bfa;
+        --accent-500: #8b5cf6;
+        --text-primary: #eceaff;
+        --text-secondary: #a9a3c9;
+        --border-subtle: rgba(139, 124, 255, 0.12);
       }
 
       * {
@@ -60,8 +62,8 @@
       }
 
       body {
-        background: var(--void);
-        color: var(--bone);
+        background: var(--bg-base);
+        color: var(--text-primary);
         font-family: 'Switzer', ui-sans-serif, system-ui, sans-serif;
         font-size: 16px;
         line-height: 1.65;
@@ -74,7 +76,7 @@
       }
 
       a {
-        color: var(--flare);
+        color: var(--accent-400);
         text-decoration: none;
       }
       a:hover {
@@ -87,11 +89,11 @@
         gap: 8px;
         font-size: 13px;
         letter-spacing: 0.04em;
-        color: var(--smoke);
+        color: var(--text-secondary);
         margin-bottom: 48px;
       }
       .back:hover {
-        color: var(--bone);
+        color: var(--text-primary);
       }
 
       h1 {
@@ -106,7 +108,7 @@
       .updated {
         font-family: 'JetBrains Mono', ui-monospace, monospace;
         font-size: 13px;
-        color: var(--smoke);
+        color: var(--text-secondary);
         margin: 0 0 48px;
       }
 
@@ -119,7 +121,7 @@
 
       p {
         margin: 0 0 16px;
-        color: var(--bone);
+        color: var(--text-primary);
       }
 
       ul {
@@ -128,15 +130,15 @@
       }
       li {
         margin-bottom: 10px;
-        color: var(--bone);
+        color: var(--text-primary);
       }
       li::marker {
-        color: var(--ember);
+        color: var(--accent-500);
       }
 
       .card {
-        background: var(--soot);
-        border: 1px solid var(--hairline);
+        background: var(--bg-surface);
+        border: 1px solid var(--border-subtle);
         border-radius: 16px;
         padding: 24px;
         margin: 32px 0;
@@ -150,21 +152,21 @@
       footer {
         margin-top: 64px;
         padding-top: 24px;
-        border-top: 1px solid var(--hairline);
+        border-top: 1px solid var(--border-subtle);
         font-size: 13px;
-        color: var(--smoke);
+        color: var(--text-secondary);
       }
     </style>
   </head>
   <body>
     <div class="wrap">
-      <a class="back" href="/">← Phoenix</a>
+      <a class="back" href="/">← Perigee</a>
 
       <h1>Privacy Policy</h1>
       <p class="updated">Last updated: July 26, 2026</p>
 
       <p>
-        This policy covers both the Phoenix Wallet website (phoenixwallet.space) and the Phoenix
+        This policy covers both the Perigee Wallet website (perigeewallet.space) and the Perigee
         Wallet browser extension. In short: neither one collects, stores or transmits any personal
         or financial data.
       </p>
@@ -204,7 +206,7 @@
 
       <h2>Future changes</h2>
       <p>
-        If a future version of Phoenix Wallet adds functionality that involves handling real user
+        If a future version of Perigee Wallet adds functionality that involves handling real user
         data or making network requests, this policy will be updated before that version ships, and
         the change will be described plainly rather than folded into a version bump.
       </p>
@@ -212,11 +214,11 @@
       <div class="card">
         <h2 style="margin-top: 0">Contact</h2>
         <p style="margin-bottom: 0" class="contact">
-          <a href="mailto:phoenixwalletcontacts@gmail.com">phoenixwalletcontacts@gmail.com</a>
+          <a href="mailto:privacy@perigeewallet.space">privacy@perigeewallet.space</a>
         </p>
       </div>
 
-      <footer>© 2026 Phoenix Wallet</footer>
+      <footer>© 2026 Perigee Wallet</footer>
     </div>
   </body>
 </html>

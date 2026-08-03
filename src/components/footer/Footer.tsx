@@ -6,7 +6,7 @@ import SmokeBackground from './SmokeBackground'
 import LineWordmark from './LineWordmark'
 import { useLocalClock } from './useLocalClock'
 
-// Phoenix Wallet footer (FOOTER-SPEC).
+// Perigee Wallet footer (FOOTER-SPEC).
 export default function Footer() {
   const time = useLocalClock(FOOTER.timezone)
   const [s1, s2, s3, s4] = FOOTER.socials
@@ -62,7 +62,7 @@ export default function Footer() {
       {/* ---- meta: legal / business enquiry / social (§12) ---------------- */}
       <div className="footer__meta">
         <p className="legal meta__legal" data-reveal>
-          ©Phoenix Wallet<sup>®</sup> 2026
+          ©Perigee Wallet<sup>®</sup> 2026
         </p>
 
         <div className="meta__enquiry" data-reveal>

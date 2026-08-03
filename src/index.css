@@ -57,16 +57,25 @@ html.lenis body {
 
 @layer base {
   :root {
-    --void: #07060a;
-    --soot: #0f0d12;
-    --ash: #1a171d;
-    --core: #ffe9c4;
-    --flare: #ffa53d;
-    --ember: #ff5a1f;
-    --coal: #7a1e00;
-    --bone: #f2eee8;
-    --smoke: #9a928c;
-    --hairline: rgba(242, 238, 232, 0.08);
+    --bg-base: #0a0818;
+    --bg-surface: #121029;
+    --bg-elevated: #1a1738;
+
+    --accent-300: #c4b5fd;
+    --accent-400: #a78bfa;
+    --accent-500: #8b5cf6;
+    --accent-600: #7c3aed;
+    --accent-800: #2e1065;
+
+    --blue-400: #60a5fa;
+    --blue-500: #3b82f6;
+    --blue-600: #2563eb;
+
+    --cyan-400: #22d3ee;
+
+    --text-primary: #eceaff;
+    --text-secondary: #a9a3c9;
+    --border-subtle: rgba(139, 124, 255, 0.12);
   }
 
   html {
@@ -75,8 +84,8 @@ html.lenis body {
   }
 
   body {
-    background: var(--void);
-    color: var(--bone);
+    background: var(--bg-base);
+    color: var(--text-primary);
     font-family: 'Switzer', ui-sans-serif, system-ui, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -87,13 +96,13 @@ html.lenis body {
   }
 
   ::selection {
-    background: var(--ember);
-    color: var(--void);
+    background: var(--accent-500);
+    color: var(--bg-base);
   }
 
-  /* Never remove outlines (brief §7). */
+  /* Never remove outlines. */
   :focus-visible {
-    outline: 2px solid var(--ember);
+    outline: 2px solid var(--accent-500);
     outline-offset: 3px;
     border-radius: 2px;
   }
@@ -162,15 +171,15 @@ html.lenis body {
 }
 
 @layer components {
-  /* Nav link with an --ember underline wiping in from the left (brief §7). */
+  /* Nav link with an accent underline wiping in from the left. */
   .nav-link {
     position: relative;
-    color: var(--smoke);
+    color: var(--text-secondary);
     transition: color 0.22s ease;
   }
   .nav-link:hover,
   .nav-link:focus-visible {
-    color: var(--bone);
+    color: var(--text-primary);
   }
   .nav-link::after {
     content: '';
@@ -179,7 +188,7 @@ html.lenis body {
     right: 0;
     bottom: -6px;
     height: 1px;
-    background: var(--ember);
+    background: var(--accent-500);
     transform: scaleX(0);
     transform-origin: left;
     transition: transform 0.22s ease;

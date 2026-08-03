@@ -4,9 +4,11 @@
 // margin is speckled with stray alpha 1–3 pixels that defeat its edge detection.
 // So the bounding box is measured directly, ignoring anything under `threshold`.
 import sharp from 'sharp'
+import { fileURLToPath } from 'node:url'
 
-export const MARK_PNG = new URL('../assets/brand/star-white-transparent.png', import.meta.url)
-  .pathname
+// fileURLToPath, not .pathname: on Windows the latter yields "/C:/..." with a
+// leading slash, which sharp can't resolve as a file path.
+export const MARK_PNG = fileURLToPath(new URL('../assets/brand/star-white-transparent.png', import.meta.url))
 
 /**
  * @returns {Promise<{buffer: Buffer, width: number, height: number}>}

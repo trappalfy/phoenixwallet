@@ -16,11 +16,11 @@ const MOCKS: Record<string, ComponentType> = {
 function CopyBlock({ kicker, title, body }: { kicker: string; title: string; body: string }) {
   return (
     <>
-      <p className="font-mono text-label uppercase text-flare">{kicker}</p>
-      <h3 className="mt-4 font-display text-section font-medium tracking-display text-bone">
+      <p className="font-mono text-label uppercase text-accent-400">{kicker}</p>
+      <h3 className="mt-4 font-display text-section font-medium tracking-display text-ink">
         {title}
       </h3>
-      <p className="mt-4 max-w-prose text-body text-smoke">{body}</p>
+      <p className="mt-4 max-w-prose text-body text-haze">{body}</p>
     </>
   )
 }
@@ -83,7 +83,7 @@ export default function Showcase() {
       </div>
 
       <div className="relative z-10 mx-auto max-w-[1200px] px-6 pt-24 md:pt-32">
-        <p data-reveal className="font-mono text-label uppercase text-smoke">
+        <p data-reveal className="font-mono text-label uppercase text-haze">
           {showcase.label}
         </p>
       </div>

@@ -1,9 +1,10 @@
-// "One surface" backdrop — the Wope portal-glow, in ember. A light source blooms
-// at top-centre; a fan of thin rays radiates down out of it, crossed by faint
-// concentric contour arcs so the fan reads as a warped horizon rather than a
-// plain sunburst. Everything dissolves outward via a radial mask.
+// "One surface" backdrop — the Wope portal-glow, in the accent ramp. A light
+// source blooms at top-centre; a fan of thin rays radiates down out of it,
+// crossed by faint concentric contour arcs so the fan reads as a warped
+// horizon rather than a plain sunburst. Everything dissolves outward via a
+// radial mask.
 //
-// Decorative only (aria-hidden), ember ramp only (brief §9). Motion lives in CSS
+// Decorative only (aria-hidden), accent ramp only. Motion lives in CSS
 // classes (sg-breathe / sg-sway / sg-descend) so reduced-motion freezes it centrally.
 
 const APEX = { x: 750, y: 150 }
@@ -59,20 +60,20 @@ export default function SurfaceGlow() {
           {/* blooms — kept concentrated near the apex so the section stays
               predominantly dark and the fan edges fall back into void */}
           <radialGradient id="sg-halo" cx={APEX.x} cy={APEX.y} r="820" gradientUnits="userSpaceOnUse">
-            <stop offset="0" stopColor="#FF5A1F" stopOpacity="0.26" />
-            <stop offset="0.42" stopColor="#7A1E00" stopOpacity="0.14" />
-            <stop offset="1" stopColor="#7A1E00" stopOpacity="0" />
+            <stop offset="0" stopColor="#8B5CF6" stopOpacity="0.26" />
+            <stop offset="0.42" stopColor="#2E1065" stopOpacity="0.14" />
+            <stop offset="1" stopColor="#2E1065" stopOpacity="0" />
           </radialGradient>
           <radialGradient id="sg-core" cx={APEX.x} cy={APEX.y} r="340" gradientUnits="userSpaceOnUse">
-            <stop offset="0" stopColor="#FFE9C4" stopOpacity="0.72" />
-            <stop offset="0.4" stopColor="#FFA53D" stopOpacity="0.42" />
-            <stop offset="1" stopColor="#FF5A1F" stopOpacity="0" />
+            <stop offset="0" stopColor="#C4B5FD" stopOpacity="0.72" />
+            <stop offset="0.4" stopColor="#A78BFA" stopOpacity="0.42" />
+            <stop offset="1" stopColor="#8B5CF6" stopOpacity="0" />
           </radialGradient>
           {/* descending beam onto the content — soft, not a spotlight */}
           <linearGradient id="sg-beam" x1={APEX.x} y1={APEX.y} x2={APEX.x} y2="1500" gradientUnits="userSpaceOnUse">
-            <stop offset="0" stopColor="#FFA53D" stopOpacity="0.3" />
-            <stop offset="0.5" stopColor="#FF5A1F" stopOpacity="0.09" />
-            <stop offset="1" stopColor="#FF5A1F" stopOpacity="0" />
+            <stop offset="0" stopColor="#A78BFA" stopOpacity="0.3" />
+            <stop offset="0.5" stopColor="#8B5CF6" stopOpacity="0.09" />
+            <stop offset="1" stopColor="#8B5CF6" stopOpacity="0" />
           </linearGradient>
         </defs>
 
@@ -85,7 +86,7 @@ export default function SurfaceGlow() {
         {/* line work, faded by the radial mask */}
         <g mask="url(#sg-mask)">
           <g className="sg-sway">
-            <path d={RAYS} stroke="#FFA53D" strokeWidth="1" strokeOpacity="0.5" />
+            <path d={RAYS} stroke="#A78BFA" strokeWidth="1" strokeOpacity="0.5" />
           </g>
           {/* rings drift outward from the apex forever — light pouring down */}
           <g className="sg-descend">
@@ -96,7 +97,7 @@ export default function SurfaceGlow() {
                 cy={APEX.y}
                 rx={r * 1.24}
                 ry={r * 0.82}
-                stroke="#FF7A2A"
+                stroke="#A78BFA"
                 strokeWidth="1"
                 strokeOpacity="0.34"
                 vectorEffect="non-scaling-stroke"
