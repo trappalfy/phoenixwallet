@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Support — Perigee Wallet</title>
+    <meta name="description" content="How to get help with Perigee Wallet, and what the current build can and cannot do." />
+    <meta name="theme-color" content="#0A0818" />
+    <link rel="preload" href="/fonts/CabinetGrotesk-Bold.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/Switzer-Regular.woff2" as="font" type="font/woff2" crossorigin />
+    <style>
+      @font-face {
+        font-family: 'Cabinet Grotesk';
+        src: url('/fonts/CabinetGrotesk-Bold.woff2') format('woff2');
+        font-weight: 700;
+        font-style: normal;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: 'Switzer';
+        src: url('/fonts/Switzer-Regular.woff2') format('woff2');
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: 'Switzer';
+        src: url('/fonts/Switzer-Medium.woff2') format('woff2');
+        font-weight: 500;
+        font-style: normal;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: 'JetBrains Mono';
+        src: url('/fonts/JetBrainsMono-Regular.woff2') format('woff2');
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      /* Standalone page, outside the Vite build — a second copy of the tokens in
+         src/theme/colors.ts / src/index.css, kept in sync by hand. Same set as
+         privacy.html; edit both together. */
+      :root {
+        --bg-base: #0a0818;
+        --bg-surface: #121029;
+        --accent-400: #a78bfa;
+        --accent-500: #8b5cf6;
+        --text-primary: #eceaff;
+        --text-secondary: #a9a3c9;
+        --border-subtle: rgba(139, 124, 255, 0.12);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        background: var(--bg-base);
+        color: var(--text-primary);
+        font-family: 'Switzer', ui-sans-serif, system-ui, sans-serif;
+        font-size: 16px;
+        line-height: 1.65;
+      }
+
+      .wrap {
+        max-width: 680px;
+        margin: 0 auto;
+        padding: 64px 24px 96px;
+      }
+
+      a {
+        color: var(--accent-400);
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+
+      .back {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 13px;
+        letter-spacing: 0.04em;
+        color: var(--text-secondary);
+        margin-bottom: 48px;
+      }
+      .back:hover {
+        color: var(--text-primary);
+      }
+
+      h1 {
+        font-family: 'Cabinet Grotesk', ui-sans-serif, system-ui, sans-serif;
+        font-weight: 700;
+        font-size: clamp(2rem, 5vw, 2.75rem);
+        letter-spacing: -0.02em;
+        line-height: 1.05;
+        margin: 0 0 12px;
+      }
+
+      .lede {
+        color: var(--text-secondary);
+        margin: 0 0 48px;
+      }
+
+      h2 {
+        font-family: 'Cabinet Grotesk', ui-sans-serif, system-ui, sans-serif;
+        font-weight: 700;
+        font-size: 20px;
+        margin: 40px 0 12px;
+      }
+
+      p {
+        margin: 0 0 16px;
+      }
+
+      ul {
+        margin: 0 0 16px;
+        padding-left: 20px;
+      }
+      li {
+        margin-bottom: 10px;
+      }
+      li::marker {
+        color: var(--accent-500);
+      }
+
+      .card {
+        background: var(--bg-surface);
+        border: 1px solid var(--border-subtle);
+        border-radius: 16px;
+        padding: 24px;
+        margin: 32px 0;
+      }
+
+      .contact {
+        font-family: 'JetBrains Mono', ui-monospace, monospace;
+        font-size: 15px;
+        margin: 0;
+      }
+
+      .note {
+        font-size: 13px;
+        color: var(--text-secondary);
+        margin: 8px 0 0;
+      }
+
+      footer {
+        margin-top: 64px;
+        padding-top: 24px;
+        border-top: 1px solid var(--border-subtle);
+        font-size: 13px;
+        color: var(--text-secondary);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <a class="back" href="/">← Perigee</a>
+
+      <h1>Support</h1>
+      <p class="lede">One mailbox, read by the people who build this. No ticket system, no bot.</p>
+
+      <div class="card">
+        <p class="contact">
+          <a href="mailto:support@perigeewallet.space">support@perigeewallet.space</a>
+        </p>
+        <p class="note">
+          The mailbox is open. We have not committed to a response time, so we are not going to
+          claim one.
+        </p>
+      </div>
+
+      <h2>Before you write</h2>
+      <p>
+        Perigee is currently an interface preview. It runs on sample data generated on your own
+        machine: it connects to no network, derives no keys, and cannot hold, send or receive real
+        funds. A wallet created in it starts empty and stays empty.
+      </p>
+      <p>That rules out most of what people usually need wallet support for:</p>
+      <ul>
+        <li>
+          There are no funds to recover, and no transaction to look up. Nothing in this build ever
+          touched a blockchain.
+        </li>
+        <li>
+          The recovery phrase it displays is sample text. It unlocks nothing, here or in any other
+          wallet, and it is regenerated each time.
+        </li>
+        <li>
+          Nothing you type is transmitted anywhere, so there is no account on our side to look at,
+          reset, or delete.
+        </li>
+      </ul>
+      <p>
+        What is worth writing about: something in the interface is broken or confusing, a screen
+        renders wrong in your browser, or you have a question about how the finished wallet is
+        meant to work.
+      </p>
+
+      <h2>Never send us these</h2>
+      <p>
+        We will never ask for a recovery phrase, a private key, or a password — not by email, not
+        in the extension, not anywhere. Anyone who does is trying to rob you, whichever wallet they
+        claim to represent. Do not paste one into a reply to us either.
+      </p>
+
+      <h2>Privacy</h2>
+      <p>
+        What the site and the extension collect — nothing — is written out in full in the
+        <a href="/privacy.html">privacy policy</a>. Questions about it go to
+        <a href="mailto:privacy@perigeewallet.space">privacy@perigeewallet.space</a>.
+      </p>
+
+      <footer>© 2026 Perigee Wallet</footer>
+    </div>
+  </body>
+</html>
