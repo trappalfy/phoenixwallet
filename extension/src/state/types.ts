@@ -90,8 +90,6 @@ export type Action =
   | { type: 'wallet/unlock' }
   | { type: 'wallet/lock' }
   | { type: 'wallet/finishOnboarding' }
-  /** Recovery phrase accepted during onboarding: the wallet behind it comes back. */
-  | { type: 'wallet/restore' }
   | { type: 'account/select'; accountId: string }
   | { type: 'account/rename'; accountId: string; name: string }
   | { type: 'account/add'; name: string }

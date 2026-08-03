@@ -191,7 +191,7 @@ if (mode === 'onboarding') {
   const results = []
   const check = (label, pass, detail = '') => results.push({ label, pass, detail })
 
-  check('opens on Welcome', (await page.locator('main').innerText()).includes('Phoenix'))
+  check('opens on Welcome', (await page.locator('main').innerText()).includes('Perigee'))
   check('no tab bar during onboarding', (await page.getByRole('navigation', { name: 'Primary' }).count()) === 0)
   shots.push(await page.screenshot())
 
@@ -980,8 +980,7 @@ if (mode === 'settings') {
   await page.getByRole('button', { name: /^Website/ }).click()
   await page.waitForTimeout(280)
   const websiteSheet = await page.getByRole('dialog', { name: 'Website' }).innerText()
-  check('website link shows the placeholder domain',
-    websiteSheet.includes('phoenix.wallet') && /public release/.test(websiteSheet))
+  check('website link shows the site domain', websiteSheet.includes('perigeewallet.space'))
   await page.keyboard.press('Escape')
   await page.waitForTimeout(240)
 
@@ -995,7 +994,7 @@ if (mode === 'settings') {
   await page.getByRole('button', { name: /^Support/ }).click()
   await page.waitForTimeout(280)
   const supportSheet = await page.getByRole('dialog', { name: 'Support' }).innerText()
-  check('support link shows a contact address', supportSheet.includes('support@phoenix.wallet'))
+  check('support link shows a contact address', supportSheet.includes('support@perigeewallet.space'))
   await page.keyboard.press('Escape')
   await page.waitForTimeout(240)
 

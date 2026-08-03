@@ -2,11 +2,9 @@ import { useWallet } from '../state/WalletProvider'
 import { useRouteTransition } from '../lib/motion'
 import type { Route } from './routes'
 import Welcome from '../screens/onboarding/Welcome'
-import CreateOrImport from '../screens/onboarding/CreateOrImport'
 import SetPassword from '../screens/onboarding/SetPassword'
 import SeedReveal from '../screens/onboarding/SeedReveal'
 import SeedConfirm from '../screens/onboarding/SeedConfirm'
-import ImportSeed from '../screens/onboarding/ImportSeed'
 import Ready from '../screens/onboarding/Ready'
 import Unlock from '../screens/Unlock'
 import Home from '../screens/Home'
@@ -36,16 +34,12 @@ function screenFor(route: Route) {
   switch (route.name) {
     case 'welcome':
       return <Welcome />
-    case 'createOrImport':
-      return <CreateOrImport />
     case 'setPassword':
       return <SetPassword />
     case 'seedReveal':
       return <SeedReveal />
     case 'seedConfirm':
       return <SeedConfirm />
-    case 'importSeed':
-      return <ImportSeed initialTab={route.tab} />
     case 'ready':
       return <Ready />
     case 'unlock':

@@ -104,7 +104,7 @@ export default function Security() {
                 onClick={() => dispatch({ type: 'prefs/set', patch: { autoLockMinutes: m } })}
                 className={`min-h-10 shrink-0 rounded-pill border px-3 text-13 transition-colors duration-state ease-out ${
                   on
-                    ? 'border-ember/50 bg-ember/10 text-ember'
+                    ? 'border-accent/50 bg-accent/10 text-accent'
                     : 'border-hairline bg-surface-1 text-text-dim hover:bg-surface-2'
                 }`}
               >

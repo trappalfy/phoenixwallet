@@ -1,5 +1,12 @@
 # Phoenix Wallet — Chrome Extension UI Build Spec
 
+> **Superseded by the Perigee rebrand.** The product built from this spec was renamed Phoenix →
+> Perigee and its palette moved from the warm ember ramp to a violet/blue/cyan one. §1 (name),
+> §5.1 (logo gradient description) and §5.2 (palette table) no longer match the shipped UI — see
+> `tailwind.config.ts` and `src/styles/index.css` for the current tokens. This file is kept as the
+> historical build brief; the rest of it (layout, screens, motion, mock-data seam) still describes
+> the real implementation.
+
 > **How to use this file:** put it at the repo root as `PROMPT.md`, drop the brand logo at
 > `assets/brand/phoenix-logo.png`, then start Claude Code with:
 > `Read PROMPT.md in full, then execute Phase 0 and Phase 1. Stop and show me the design tokens and primitives before continuing.`

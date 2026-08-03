@@ -10,7 +10,7 @@ export default function Welcome() {
       <div className="flex flex-1 flex-col items-start justify-center">
         <PhoenixMark size={56} active />
         <h1 className="mt-6 font-display text-34 font-bold tracking-figure text-text">
-          Phoenix
+          Perigee
         </h1>
         {/* One line, product-side and specific — not marketing copy centred in a product UI (§5.6). */}
         <p className="mt-2 max-w-[30ch] text-15 text-text-dim">
@@ -18,14 +18,12 @@ export default function Welcome() {
         </p>
       </div>
 
-      <div className="space-y-2">
-        <Button block onClick={() => nav.push({ name: 'createOrImport' })}>
-          Create a new wallet
-        </Button>
-        <Button block variant="ghost" onClick={() => nav.push({ name: 'importSeed' })}>
-          I already have a wallet
-        </Button>
-      </div>
+      {/* A single action: there is no import path, so the create/import chooser
+          that used to sit between here and the password step had one option left
+          and was a dead click. */}
+      <Button block onClick={() => nav.push({ name: 'setPassword' })}>
+        Create a new wallet
+      </Button>
     </div>
   )
 }

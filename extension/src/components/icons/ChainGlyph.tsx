@@ -41,7 +41,7 @@ const GLYPHS: Record<ChainId, ReactNode> = {
   optimism: (
     <>
       <circle cx="12" cy="12" r="9" fill="currentColor" />
-      <circle cx="12" cy="12" r="4.4" fill="#0A0506" />
+      <circle cx="12" cy="12" r="4.4" fill="#0A0818" />
     </>
   ),
   polygon: (

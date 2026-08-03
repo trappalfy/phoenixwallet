@@ -23,7 +23,7 @@ export default function IconButton({
         'grid h-10 w-10 place-items-center rounded-pill',
         'transition-[transform,background-color,color] duration-press ease-out',
         'active:scale-[0.97] disabled:pointer-events-none disabled:opacity-40',
-        tone === 'active' ? 'text-ember' : 'text-text-dim hover:bg-surface-2 hover:text-text',
+        tone === 'active' ? 'text-accent' : 'text-text-dim hover:bg-surface-2 hover:text-text',
         className,
       ]
         .filter(Boolean)

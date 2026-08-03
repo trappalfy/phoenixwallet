@@ -42,22 +42,22 @@
 
 @layer base {
   :root {
-    --ink: #0a0506;
-    --surface-1: #140a0b;
-    --surface-2: #1e1011;
-    --surface-3: #2a1719;
-    --hairline: rgba(255, 196, 0, 0.09);
-    --text: #f7edea;
-    --text-dim: #b39c97;
-    --text-mute: #96817b;
-    --ember-deep: #d00000;
-    --ember: #ff4d00;
-    --ember-hot: #ffc300;
+    --ink: #0a0818;
+    --surface-1: #121029;
+    --surface-2: #1a1738;
+    --surface-3: #221e47;
+    --hairline: rgba(139, 124, 255, 0.12);
+    --text: #eceaff;
+    --text-dim: #a9a3c9;
+    --text-mute: #948db0;
+    --accent-deep: #7c3aed;
+    --accent: #8b5cf6;
+    --accent-hot: #c4b5fd;
     --gain: #3ed598;
     --loss: #ff3b5c;
 
     /* Angle copied from the logo so the UI and the icon share one light direction. */
-    --grad-ember: linear-gradient(135deg, #d00000 0%, #ff4d00 55%, #ffc300 100%);
+    --grad-accent: linear-gradient(135deg, var(--accent-deep) 0%, var(--accent) 55%, var(--accent-hot) 100%);
 
     --ease-out: cubic-bezier(0.2, 0.8, 0.25, 1);
     --ease-in-out: cubic-bezier(0.6, 0, 0.3, 1);
@@ -89,7 +89,7 @@
   }
 
   ::selection {
-    background: var(--ember);
+    background: var(--accent);
     color: var(--ink);
   }
 
@@ -97,8 +97,8 @@
   :focus-visible {
     outline: none;
     box-shadow:
-      0 0 0 1px rgba(255, 77, 0, 0.55),
-      0 0 0 4px rgba(255, 77, 0, 0.14);
+      0 0 0 1px rgba(139, 92, 246, 0.55),
+      0 0 0 4px rgba(139, 92, 246, 0.14);
   }
 
   /* Numbers must not reflow as they change (§11). */
@@ -128,12 +128,12 @@
 }
 
 @layer components {
-  /* Thin ember scrollbar for the content regions that are allowed to scroll. */
+  /* Thin accent scrollbar for the content regions that are allowed to scroll. */
   .scroll-region {
     overflow-y: auto;
     overscroll-behavior: contain;
     scrollbar-width: thin;
-    scrollbar-color: rgba(255, 77, 0, 0.35) transparent;
+    scrollbar-color: rgba(139, 92, 246, 0.35) transparent;
   }
   .scroll-region::-webkit-scrollbar {
     width: 4px;
@@ -142,10 +142,10 @@
     background: transparent;
   }
   .scroll-region::-webkit-scrollbar-thumb {
-    background: rgba(255, 77, 0, 0.35);
+    background: rgba(139, 92, 246, 0.35);
     border-radius: 999px;
   }
   .scroll-region::-webkit-scrollbar-thumb:hover {
-    background: rgba(255, 77, 0, 0.55);
+    background: rgba(139, 92, 246, 0.55);
   }
 }

@@ -17,7 +17,7 @@ type Props = {
   /** Rendered size in px. Tested at 24 and 64. */
   size?: number
   /**
-   * Fills the mark with the ember gradient instead of currentColor. This is the
+   * Fills the mark with the accent gradient instead of currentColor. This is the
    * mark's active state — one of exactly four places §5.2 permits the gradient.
    */
   active?: boolean
@@ -42,11 +42,11 @@ export default function PhoenixMark({ size = 24, active = false, className, titl
     >
       {active && (
         <defs>
-          {/* 135°, matching --grad-ember, so mark and UI share one light direction. */}
+          {/* 135°, matching --grad-accent, so mark and UI share one light direction. */}
           <linearGradient id={gradientId} x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" stopColor="#D00000" />
-            <stop offset="55%" stopColor="#FF4D00" />
-            <stop offset="100%" stopColor="#FFC300" />
+            <stop offset="0%" stopColor="#7C3AED" />
+            <stop offset="55%" stopColor="#8B5CF6" />
+            <stop offset="100%" stopColor="#C4B5FD" />
           </linearGradient>
         </defs>
       )}

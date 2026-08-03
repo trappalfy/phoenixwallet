@@ -25,7 +25,7 @@ export default function AmountInput({
   return (
     <div>
       <div
-        className={`rounded-card border bg-surface-1 p-3 transition-colors duration-state ease-out focus-within:border-ember/50 ${
+        className={`rounded-card border bg-surface-1 p-3 transition-colors duration-state ease-out focus-within:border-accent/50 ${
           error ? 'border-loss' : 'border-hairline'
         }`}
       >
@@ -68,7 +68,7 @@ export default function AmountInput({
             <button
               type="button"
               onClick={() => onChange(String(token.balance))}
-              className="rounded-chip bg-surface-3 px-1.5 py-0.5 font-mono text-11 uppercase tracking-label text-ember transition-colors duration-state ease-out hover:bg-surface-2"
+              className="rounded-chip bg-surface-3 px-1.5 py-0.5 font-mono text-11 uppercase tracking-label text-accent transition-colors duration-state ease-out hover:bg-surface-2"
             >
               Max
             </button>

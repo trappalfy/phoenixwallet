@@ -3,7 +3,6 @@ import BackBar from '../../components/shell/BackBar'
 import Field from '../../components/primitives/Field'
 import Button from '../../components/primitives/Button'
 import { useNav } from '../../router/useNav'
-import { useWallet } from '../../state/WalletProvider'
 import { Check, Close } from '../../components/icons'
 
 // §2.2 — any input of 8+ characters is accepted and nothing is stored anywhere.
@@ -26,7 +25,6 @@ function strengthOf(value: string): number {
 
 export default function SetPassword() {
   const nav = useNav()
-  const { state } = useWallet()
   const [password, setPassword] = useState('')
   const [confirm, setConfirm] = useState('')
   const [acknowledged, setAcknowledged] = useState(false)
@@ -43,7 +41,7 @@ export default function SetPassword() {
       <BackBar title="Create a password" />
       <div className="scroll-region flex-1 px-gutter pb-4">
         <p className="pb-4 text-13 text-text-dim">
-          This password unlocks Phoenix on this device. It does not protect your funds — your
+          This password unlocks Perigee on this device. It does not protect your funds — your
           recovery phrase does.
         </p>
 
@@ -56,14 +54,14 @@ export default function SetPassword() {
             onChange={(e) => setPassword(e.target.value)}
           />
 
-          {/* Strength rail — ember gradient as a fill, one of the four places §5.2 allows it. */}
+          {/* Strength rail — accent gradient as a fill, one of the four places §5.2 allows it. */}
           <div>
             <div className="flex gap-1">
               {[0, 1, 2, 3].map((i) => (
                 <span
                   key={i}
                   className={`h-1 flex-1 rounded-pill transition-colors duration-state ease-out ${
-                    i < strength ? 'bg-grad-ember' : 'bg-surface-3'
+                    i < strength ? 'bg-grad-accent' : 'bg-surface-3'
                   }`}
                 />
               ))}
@@ -97,10 +95,10 @@ export default function SetPassword() {
               type="checkbox"
               checked={acknowledged}
               onChange={(e) => setAcknowledged(e.target.checked)}
-              className="mt-0.5 h-4 w-4 shrink-0 accent-ember"
+              className="mt-0.5 h-4 w-4 shrink-0 accent-accent"
             />
             <span className="text-12 text-text-dim">
-              I understand that Phoenix cannot reset this password. If I forget it, the only way back
+              I understand that Perigee cannot reset this password. If I forget it, the only way back
               in is my recovery phrase.
             </span>
           </label>
@@ -108,17 +106,7 @@ export default function SetPassword() {
       </div>
 
       <div className="shrink-0 px-gutter pb-5 pt-2">
-        {/* Someone who arrived here by importing has already written their phrase
-            down — showing it back and asking them to confirm it is busywork. */}
-        <Button
-          block
-          disabled={!canContinue}
-          onClick={() =>
-            nav.push({
-              name: state.nav.stack.some((r) => r.name === 'importSeed') ? 'ready' : 'seedReveal',
-            })
-          }
-        >
+        <Button block disabled={!canContinue} onClick={() => nav.push({ name: 'seedReveal' })}>
           Continue
         </Button>
       </div>

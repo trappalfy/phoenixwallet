@@ -39,7 +39,7 @@ export default function Currency() {
                 aria-checked={on}
                 onClick={() => dispatch({ type: 'prefs/set', patch: { currency: code } })}
                 className={`flex min-h-[52px] w-full items-center gap-3 rounded-card border px-3 text-left transition-colors duration-state ease-out ${
-                  on ? 'border-ember/40 bg-surface-1' : 'border-hairline bg-surface-1/60 hover:bg-surface-2'
+                  on ? 'border-accent/40 bg-surface-1' : 'border-hairline bg-surface-1/60 hover:bg-surface-2'
                 }`}
               >
                 {/* Taken from the formatter rather than the FX table: Intl prints
@@ -57,7 +57,7 @@ export default function Currency() {
                 <span className="shrink-0 font-mono text-12 tabular-nums text-text-dim">
                   {formatFiat(totals.value, code)}
                 </span>
-                {on && <Check size={16} className="shrink-0 text-ember" />}
+                {on && <Check size={16} className="shrink-0 text-accent" />}
               </button>
             )
           })}

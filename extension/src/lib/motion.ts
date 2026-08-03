@@ -32,8 +32,8 @@ export const DUR = {
  * for hover and press.
  */
 export const EASE = {
-  out: CustomEase.create('phoenix-out', 'M0,0 C0.2,0.8 0.25,1 1,1'),
-  inOut: CustomEase.create('phoenix-in-out', 'M0,0 C0.6,0 0.3,1 1,1'),
+  out: CustomEase.create('perigee-out', 'M0,0 C0.2,0.8 0.25,1 1,1'),
+  inOut: CustomEase.create('perigee-in-out', 'M0,0 C0.6,0 0.3,1 1,1'),
 } as const
 
 /** §10: 12ms apart, first eight rows only. */

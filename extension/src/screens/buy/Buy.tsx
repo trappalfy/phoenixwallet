@@ -85,7 +85,7 @@ export default function Buy() {
                 onClick={() => dispatch({ type: 'draft/buy', patch: { fiatAmount: String(chip) } })}
                 className={`rounded-chip border px-2.5 py-1 font-mono text-12 tabular-nums transition-colors duration-state ease-out ${
                   draft.fiatAmount === String(chip)
-                    ? 'border-ember/50 bg-surface-3 text-text'
+                    ? 'border-accent/50 bg-surface-3 text-text'
                     : 'border-hairline text-text-dim hover:bg-surface-2'
                 }`}
               >

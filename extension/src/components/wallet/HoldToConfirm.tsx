@@ -64,7 +64,7 @@ export default function HoldToConfirm({
       <span
         ref={sweep.fill}
         aria-hidden
-        className="absolute inset-y-0 left-0 w-full origin-left scale-x-0 bg-grad-ember"
+        className="absolute inset-y-0 left-0 w-full origin-left scale-x-0 bg-grad-accent"
       />
       <span
         className={`relative flex min-h-10 items-center justify-center px-4 py-2.5 text-15 font-medium transition-colors duration-state ${

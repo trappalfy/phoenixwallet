@@ -84,7 +84,7 @@ export default function NftDetail({ nftId }: { nftId: string }) {
 
         {isAvatar && (
           <div className="pt-2">
-            <Pill tone="ember">
+            <Pill tone="accent">
               <Check size={12} />
               Account avatar
             </Pill>

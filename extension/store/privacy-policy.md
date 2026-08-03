@@ -19,6 +19,6 @@ If a future version of Perigee Wallet adds functionality that involves handling 
 making network requests, this policy will be updated before that version ships, and the change
 will be described plainly rather than folded into a version bump.
 
-Contact: phoenixwalletcontacts@gmail.com
+Contact: privacy@perigeewallet.space
 
-Live version of this policy: https://phoenixwallet.space/privacy.html
+Live version of this policy: https://perigeewallet.space/privacy.html

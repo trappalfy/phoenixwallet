@@ -16,7 +16,7 @@ Everything here is submission material — none of it ships inside the extension
 
 ## Steps to actually submit
 
-1. `npm run build && npm run package` → produces `store/build/phoenix-wallet-<version>.zip`.
+1. `npm run build && npm run package` → produces `store/build/perigee-wallet-<version>.zip`.
 2. In the Chrome Web Store developer dashboard: **New item** → upload that zip.
 3. Store listing tab: paste from `listing.md`, upload the five images from `screenshots/`.
 4. Privacy practices tab: paste from `permissions.md` / `privacy-policy.md`. This tab typically
@@ -25,7 +25,7 @@ Everything here is submission material — none of it ships inside the extension
    that URL. Fill in the real contact address in `privacy-policy.md` first.
 5. **Visibility: set to Unlisted**, not Public — see `docs/phoenix-wallet-PROMPT.md`'s §14 note and the
    earlier discussion: this is a demo wallet with no real wallet functionality, and a public
-   "Phoenix Wallet" listing risks both store-review rejection under crypto-wallet scrutiny and a
+   "Perigee Wallet" listing risks both store-review rejection under crypto-wallet scrutiny and a
    real user mistaking it for a working wallet. Unlisted still yields a working
    `chromewebstore.google.com/detail/<id>` URL for the landing site's hero button. It is a
    dashboard dropdown, not a rebuild — flip it later if that decision changes.

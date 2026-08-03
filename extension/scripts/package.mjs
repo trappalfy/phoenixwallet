@@ -21,7 +21,7 @@ if (!existsSync(DIST)) {
 }
 
 const pkg = JSON.parse(readFileSync(`${ROOT}package.json`, 'utf8'))
-const outFile = `${OUT_DIR}/phoenix-wallet-${pkg.version}.zip`
+const outFile = `${OUT_DIR}/perigee-wallet-${pkg.version}.zip`
 
 mkdirSync(OUT_DIR, { recursive: true })
 if (existsSync(outFile)) rmSync(outFile)
@@ -60,7 +60,7 @@ if (hasZip()) {
     `}`,
   ].join('\n')
 
-  const psFile = join(tmpdir(), `phoenix-pack-${process.pid}.ps1`)
+  const psFile = join(tmpdir(), `perigee-pack-${process.pid}.ps1`)
   writeFileSync(psFile, ps, 'utf8')
   try {
     execSync(

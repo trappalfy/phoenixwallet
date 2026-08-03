@@ -21,7 +21,7 @@ export default function Ready() {
     <div ref={ignite} className="relative flex h-full flex-col overflow-hidden px-gutter pb-5 pt-16">
       {/* heat rail across the top edge */}
       <div className="absolute inset-x-0 top-0 h-0.5 overflow-hidden">
-        <div data-ignite-rail className="h-full w-1/2 bg-grad-ember" />
+        <div data-ignite-rail className="h-full w-1/2 bg-grad-accent" />
       </div>
 
       <div className="flex flex-1 flex-col items-center justify-center text-center">

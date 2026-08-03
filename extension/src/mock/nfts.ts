@@ -40,7 +40,7 @@ export const NFTS: readonly Nft[] = [
       { label: 'Ground', value: 'Basalt' },
       { label: 'Edition', value: '184 / 512' },
     ],
-    // Deliberately off the brand ramp. Artwork tinted with the exact --grad-ember
+    // Deliberately off the brand ramp. Artwork tinted with the exact --grad-accent
     // stops reads as a UI surface — the card looked like the primary button.
     art: { pattern: 'prism', hues: ['#2A0618', '#B4145A', '#FF9E5E'], angle: 135 },
   },

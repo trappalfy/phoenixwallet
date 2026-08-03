@@ -60,7 +60,7 @@ export default function AccountSwitcher() {
                     {truncateAddress(addressFor(a, state.activeChainId))}
                   </span>
                 </span>
-                {active && <Check size={18} className="shrink-0 text-ember" />}
+                {active && <Check size={18} className="shrink-0 text-accent" />}
               </button>
             )
           })}

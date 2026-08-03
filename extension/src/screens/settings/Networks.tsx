@@ -52,7 +52,7 @@ export default function Networks() {
       <div
         key={chain.id}
         className={`flex items-center gap-1 rounded-card border pl-2.5 pr-1 transition-colors duration-state ease-out ${
-          active ? 'border-ember/40 bg-surface-1' : 'border-hairline bg-surface-1/60'
+          active ? 'border-accent/40 bg-surface-1' : 'border-hairline bg-surface-1/60'
         }`}
       >
         <button
@@ -66,7 +66,7 @@ export default function Networks() {
           <span className="min-w-0 flex-1">
             <span className="flex items-center gap-1.5">
               <span className="min-w-0 truncate text-15 text-text">{chain.name}</span>
-              {active && <Check size={14} className="shrink-0 text-ember" />}
+              {active && <Check size={14} className="shrink-0 text-accent" />}
             </span>
             {/* The symbol sits under the name rather than beside it: side by side
                 it crowded the arrows and read as part of them. */}
@@ -116,7 +116,7 @@ export default function Networks() {
             type="checkbox"
             checked={showTestnets}
             onChange={(e) => dispatch({ type: 'prefs/set', patch: { showTestnets: e.target.checked } })}
-            className="h-4 w-4 accent-ember"
+            className="h-4 w-4 accent-accent"
           />
         </label>
         {showTestnets && <div className="space-y-1 pt-2">{testnets.map(row)}</div>}

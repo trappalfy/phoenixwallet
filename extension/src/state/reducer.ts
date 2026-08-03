@@ -94,23 +94,9 @@ export function reducer(state: WalletState, action: Action): WalletState {
       return { ...state, status: 'locked', nav: { stack: [{ name: 'unlock' }], direction: 'forward' } }
 
     case 'wallet/finishOnboarding':
-      // Deliberately does not touch the accounts. Creating a wallet leaves the
-      // empty one already in state; restoring one has replaced it by now.
+      // Deliberately does not touch the accounts: creating a wallet leaves the
+      // empty one already in state, and that is the only way in now.
       return { ...state, status: 'unlocked', nav: { stack: [{ name: 'home' }], direction: 'forward' } }
-
-    case 'wallet/restore':
-      // The phrase belongs to a wallet that has been in use, so everything that
-      // wallet accumulated comes back with it: accounts, balances, collectibles,
-      // history and the sites it had connected to.
-      return {
-        ...state,
-        accounts: ACCOUNTS,
-        activeAccountId: ACCOUNTS[0].id,
-        // The restored wallet's phrase replaces whatever this session generated.
-        phrase: RECOVERY_PHRASE,
-        connectedSites: CONNECTED_SITES,
-        ...snapshot(ACCOUNTS[0].id, state.activeChainId),
-      }
 
     case 'account/select':
       return {

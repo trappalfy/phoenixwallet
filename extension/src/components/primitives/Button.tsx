@@ -11,7 +11,7 @@ type Props = ButtonHTMLAttributes<HTMLButtonElement> & {
   children: ReactNode
 }
 
-// The ember gradient on `primary` is one of the four places §5.2 permits it.
+// The accent gradient on `primary` is one of the four places §5.2 permits it.
 // Everything else is ink and surface-* with hairline edges.
 //
 // A disabled primary drops the gradient entirely rather than fading it: the
@@ -19,7 +19,7 @@ type Props = ButtonHTMLAttributes<HTMLButtonElement> & {
 // the action" while also looking like mud.
 const VARIANTS: Record<ButtonVariant, string> = {
   primary:
-    'bg-grad-ember text-ink font-medium disabled:bg-none disabled:bg-surface-2 disabled:text-text-mute',
+    'bg-grad-accent text-ink font-medium disabled:bg-none disabled:bg-surface-2 disabled:text-text-mute',
   ghost: 'border border-hairline bg-surface-1 text-text hover:bg-surface-2 disabled:opacity-40',
   quiet: 'text-text-dim hover:text-text disabled:opacity-40',
   danger: 'border border-loss/40 bg-surface-1 text-loss hover:bg-surface-2 disabled:opacity-40',

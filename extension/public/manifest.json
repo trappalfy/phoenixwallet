@@ -1,11 +1,18 @@
 {
   "manifest_version": 3,
-  "name": "Phoenix Wallet",
+  "name": "Perigee Wallet",
+  "short_name": "Perigee",
   "version": "0.1.0",
-  "description": "Self-custody wallet for Ethereum, Solana, Bitcoin and five more networks. Your keys never leave your device.",
+  "description": "Wallet interface for managing accounts, transfers, swaps and activity, running entirely on local sample data.",
+  "icons": {
+    "16": "icons/16.png",
+    "32": "icons/32.png",
+    "48": "icons/48.png",
+    "128": "icons/128.png"
+  },
   "action": {
     "default_popup": "index.html",
-    "default_title": "Phoenix Wallet",
+    "default_title": "Perigee Wallet",
     "default_icon": {
       "16": "icons/16.png",
       "32": "icons/32.png",
@@ -13,10 +20,7 @@
       "128": "icons/128.png"
     }
   },
-  "icons": {
-    "16": "icons/16.png",
-    "32": "icons/32.png",
-    "48": "icons/48.png",
-    "128": "icons/128.png"
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'"
   }
 }
