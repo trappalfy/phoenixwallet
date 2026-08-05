@@ -43,6 +43,53 @@ export const product = {
   unsupportedLabel: 'Chrome & Edge only',
 } as const
 
+// The Solana community token. Everything <TokenBar/> renders comes from here.
+export const token = {
+  chain: 'Solana',
+
+  /**
+   * Ticker, once it is chosen. Rendered as `$SYMBOL` ahead of the address; the
+   * bar falls back to the neutral `label` below while this is null, so shipping
+   * does not have to wait on naming.
+   */
+  symbol: null as string | null,
+
+  /**
+   * null until the mint exists — and it has to stay null until then.
+   *
+   * Never put a placeholder here. Not a shortened one, not an obviously-fake
+   * one, not a real address borrowed for testing. A meme launch attracts
+   * impostor mints, and any base58-shaped string sitting in this bar is
+   * something a visitor copies and sends money to. It can also be screenshotted
+   * and passed around as our official address, which we would then be unable to
+   * take back.
+   *
+   * While this is null the bar renders one line of text: nothing to copy, and no
+   * scanner links, because those are built from the address itself and cannot
+   * exist without it.
+   *
+   * Same switch as `product.chromeStoreUrl` above — set it and the component
+   * changes state. One line.
+   */
+  contractAddress: null as string | null,
+
+  // Two lengths rather than one truncated with an ellipsis: at 360px the full
+  // sentence would clip mid-word, and this line is the only thing the bar says
+  // before launch.
+  pending: 'Token launching on Solana — the contract address appears here',
+  pendingShort: 'Launching on Solana',
+  label: 'Contract',
+  copy: 'Copy',
+  copied: 'Copied',
+
+  // Bases, not full URLs: both are completed with the address, so before launch
+  // they are absent by construction rather than by remembering to hide them.
+  explorerBase: 'https://solscan.io/token/',
+  explorerLabel: 'Solscan',
+  dexBase: 'https://dexscreener.com/solana/',
+  dexLabel: 'DEXScreener',
+} as const
+
 export const hero = {
   eyebrow: '✦ Extension + iOS + Android — waitlist open',
   line1: 'Hold your own keys.',

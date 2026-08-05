@@ -3,6 +3,7 @@ import { gsap, ScrollTrigger } from './lib/gsap'
 import { useLenis } from './hooks/useLenis'
 import Shader from './gl/Shader'
 import GrainOverlay from './components/GrainOverlay'
+import TokenBar from './components/TokenBar'
 import Nav from './components/Nav'
 import Hero from './components/Hero'
 import BentoGrid from './components/BentoGrid'
@@ -57,6 +58,7 @@ export default function App() {
   return (
     <div ref={rootRef} className="relative">
       <Shader />
+      <TokenBar />
       <Nav onWaitlist={openWaitlist} />
       <main>
         <Hero />

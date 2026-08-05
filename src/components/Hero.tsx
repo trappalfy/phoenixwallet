@@ -32,7 +32,7 @@ export default function Hero() {
   return (
     <section
       id="top"
-      className="relative flex min-h-[100svh] flex-col justify-between px-6 pb-10 pt-[68px]"
+      className="relative flex min-h-[100svh] flex-col justify-between px-6 pb-10 pt-[calc(var(--bar-h)_+_var(--nav-h))]"
     >
       {/* scrim: darkens top + left (where all the text lives) so body copy keeps
           ≥4.5:1 over the shader, while the molten band still glows bottom-right */}

@@ -62,7 +62,7 @@ export default function Nav({
   return (
     <header
       data-load="nav"
-      className={`fixed inset-x-0 top-0 z-50 h-[68px] border-b transition-colors duration-300 ${
+      className={`fixed inset-x-0 top-[var(--bar-h)] z-50 h-[var(--nav-h)] border-b transition-colors duration-300 ${
         scrolled ? 'border-subtle bg-base/[0.88] backdrop-blur-md' : 'border-transparent'
       }`}
     >

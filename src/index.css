@@ -76,11 +76,25 @@ html.lenis body {
     --text-primary: #eceaff;
     --text-secondary: #a9a3c9;
     --border-subtle: rgba(139, 124, 255, 0.12);
+
+    /* Fixed header geometry. Four places have to agree on these adding up — the
+       token bar, the nav sitting below it, the hero's top padding and the
+       install page's — so the numbers live here instead of as arbitrary values
+       that drift apart the moment one of them changes. */
+    --bar-h: 40px;
+    --nav-h: 68px;
   }
 
   html {
     -webkit-text-size-adjust: 100%;
     scroll-behavior: auto; /* Lenis owns smooth scroll */
+  }
+
+  /* Anchored sections have to clear the fixed header. #networks carries only
+     64px of top padding — already less than the nav is tall on its own — so
+     without this its heading jumps to underneath the bar. */
+  section[id] {
+    scroll-margin-top: calc(var(--bar-h) + var(--nav-h) + 8px);
   }
 
   body {
@@ -165,7 +179,9 @@ html.lenis body {
 @media (prefers-reduced-motion: reduce) {
   .sg-breathe,
   .sg-sway,
-  .sg-descend {
+  .sg-descend,
+  /* the token bar's pre-launch indicator */
+  .animate-pulse {
     animation: none !important;
   }
 }

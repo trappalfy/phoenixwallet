@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { install, product } from '../../content/copy'
 import { BentoIcon } from '../../lib/icons'
 import { canInstallExtension } from '../../lib/browser'
+import TokenBar from '../TokenBar'
 import Nav from '../Nav'
 import WaitlistModal from '../WaitlistModal'
 import GrainOverlay from '../GrainOverlay'
@@ -61,9 +62,10 @@ export default function InstallPage() {
 
   return (
     <div className="relative min-h-screen bg-base">
+      <TokenBar />
       <Nav onWaitlist={() => setWaitlistOpen(true)} hrefBase="/" />
 
-      <main className="mx-auto max-w-[1200px] px-6 pb-24 pt-[120px] md:pb-32 md:pt-[152px]">
+      <main className="mx-auto max-w-[1200px] px-6 pb-24 pt-[calc(var(--bar-h)_+_120px)] md:pb-32 md:pt-[calc(var(--bar-h)_+_152px)]">
         <p className="inline-flex w-fit items-center rounded-pill border border-subtle bg-ink/[0.03] px-3.5 py-1.5 font-mono text-label uppercase text-haze">
           {install.eyebrow}
         </p>
