@@ -14,10 +14,7 @@ export const FOOTER = {
 
   socials: [
     // order = column 1 top→bottom, then column 2
-    // X was a Phoenix-branded handle. Marked soon rather than relinked: a
-    // Perigee handle does not exist yet, and pointing at one that does not
-    // resolve is worse than saying the account is not open.
-    { label: 'X', href: null, soon: true },
+    { label: 'X', href: 'https://x.com/PerigeeWallet', soon: false },
     { label: 'Discord', href: null, soon: true },
     { label: 'Github', href: null, soon: true },
     { label: 'Telegram', href: null, soon: true },
