@@ -22,11 +22,19 @@ export const nav = {
 // listing, or download the zip and load it unpacked (see /install).
 export const product = {
   /**
-   * null until Google approves the listing; the nav CTA falls back to the
-   * waitlist modal meanwhile. Paste the listing URL here and it switches over.
-   * See extension/store/README.md step 7.
+   * Approved and live. Setting this flips the nav CTA from the waitlist modal
+   * to a real Web Store link (see Nav.tsx's StoreCta). Kept as `string | null`
+   * because the fallback is still wired and worth keeping: pull the listing and
+   * this goes back to null rather than shipping a dead button.
+   *
+   * Stored without the `?authuser=` and `?hl=` parameters the dashboard hands
+   * you — the first is tied to one Google account's session, the second pins
+   * every visitor to one interface language.
    */
-  chromeStoreUrl: null as string | null,
+  chromeStoreUrl:
+    'https://chromewebstore.google.com/detail/perigee-wallet/lkhpcjjibfmepfpeodiidmolhigmifah' as
+      | string
+      | null,
   // Byte-identical to extension/store/build/perigee-wallet-0.1.0.zip — the same
   // artifact goes to the Chrome Web Store and to anyone downloading it here.
   downloadUrl: '/downloads/perigee-wallet-0.1.0.zip',
@@ -195,7 +203,7 @@ export const install = {
   eyebrow: '✦ No store required',
   line1: 'Add Perigee',
   line2: 'to your browser.',
-  sub: 'Two minutes, no account. Works on Chrome, Edge and Brave today; the Chrome Web Store listing is on the way.',
+  sub: 'Two minutes, no account. Works on Chrome, Edge and Brave — or install it in one click from the Chrome Web Store, linked in the header.',
   download: 'Download Perigee',
   secondary: 'Read the security model',
   updateNote:
@@ -219,7 +227,7 @@ export const install = {
     {
       icon: 'toggle',
       title: 'Turn on Developer mode',
-      body: 'Flip the "Developer mode" switch in the top-right corner. It unlocks the "Load unpacked" button used for extensions not yet on the store.',
+      body: 'Flip the "Developer mode" switch in the top-right corner. It unlocks the "Load unpacked" button, which installs an extension from a folder instead of the store.',
     },
     {
       icon: 'folder',

@@ -36,7 +36,10 @@ Everything here is submission material — none of it ships inside the extension
 6. Submit for review. Unlisted items go through the same automated + manual review as Public ones
    (visibility does not relax review), so this can still take the usual review turnaround.
 7. Once approved, copy the listing URL back and it goes into `src/content/copy.ts`'s
-   `chromeStoreUrl` on the landing site (currently `null`, which falls back to the waitlist modal).
+   `chromeStoreUrl` on the landing site. **Done** — approved and live at
+   `chromewebstore.google.com/detail/perigee-wallet/lkhpcjjibfmepfpeodiidmolhigmifah`. Strip the
+   `?authuser=` and `?hl=` parameters the dashboard appends before storing it: the first is tied
+   to one Google account's session, the second pins every visitor to one language.
 
 ## Regenerating screenshots
 
