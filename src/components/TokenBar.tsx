@@ -45,24 +45,12 @@ export default function TokenBar() {
               </span>
             </button>
 
-            {/* Solscan survives the narrow breakpoint and the chart does not:
-                checking that the mint is ours is the move that stops someone
-                buying an impostor token, and it matters most on the phone where
-                the address is shortened and cannot be eyeballed in full. */}
-            <div className="flex shrink-0 items-center gap-3">
-              <a
-                href={`${token.explorerBase}${address}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-[11px] text-haze transition-colors hover:text-ink"
-              >
-                {token.explorerLabel}
-              </a>
+            <div className="hidden shrink-0 items-center gap-3 sm:flex">
               <a
                 href={`${token.dexBase}${address}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hidden text-[11px] text-haze transition-colors hover:text-ink sm:inline"
+                className="text-[11px] text-haze transition-colors hover:text-ink"
               >
                 {token.dexLabel}
               </a>
