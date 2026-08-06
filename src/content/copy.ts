@@ -73,11 +73,9 @@ export const token = {
    */
   contractAddress: null as string | null,
 
-  // Two lengths rather than one truncated with an ellipsis: at 360px the full
-  // sentence would clip mid-word, and this line is the only thing the bar says
-  // before launch.
-  pending: 'Token launching on Solana — the contract address appears here',
-  pendingShort: 'Launching on Solana',
+  // Short enough on its own that pending/pendingShort no longer need to differ.
+  pending: 'The contract address appears here',
+  pendingShort: 'The contract address appears here',
   label: 'Contract',
   copy: 'Copy',
   copied: 'Copied',
